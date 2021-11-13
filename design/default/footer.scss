@@ -1,0 +1,100 @@
+@import 'var-reset.scss';
+
+footer {
+    width: 100%;
+    padding: 40px 0;
+    background-color: #fff;
+    border-top: 1px solid #ececec;
+
+    .footer-container {
+        display: grid;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 15px;
+        gap: 2rem 0;
+        .footer-column {
+            width: 100%;
+            text-align: left;
+            ul {
+                list-style: none;
+                li {
+                    img {
+                        height: 25px;
+                    }
+                    .title {
+                        font: 0.93rem/35px $font-text;
+                        letter-spacing: 1px;
+                    }
+                    .link {
+                        font: 0.93rem/25px $font-subtext;
+                        letter-spacing: 1px;
+                        color: black;
+                    }
+                    .link:hover {
+                        color: grey;
+                        transition: all 0.15s;
+                    }
+                }
+            }
+            .desktop {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (min-width: 475px) {
+    footer {    
+        .footer-container {
+            gap: 1.5rem 0;
+            grid-template-columns: repeat(2, 1fr);
+            .footer-column {
+                display: inline-grid;
+                justify-items: center;    
+                ul {
+                    list-style: none;
+                    li {
+                        img {
+                            height: 30px;
+                        }
+                        .title {
+                            font: 0.97rem/35px $font-text;
+                        }
+                        .link {
+                            font: 0.97rem/25px $font-subtext;
+                        }
+                    }
+                }    
+                .mobile {
+                    display: none;
+                }
+                .desktop {
+                    display: inline;
+                }
+            }
+        }
+    }    
+}
+
+@media (min-width: 768px) {
+    footer {    
+        .footer-container {
+            grid-template-columns: repeat(4, 1fr);
+            .footer-column {
+                ul {
+                    li {
+                        img {
+                            height: 33px;
+                        }
+                        .title {
+                            font: 1rem/35px $font-text;
+                        }
+                        .link {
+                            font: 1rem/25px $font-subtext;
+                        }
+                    }    
+                }
+            }
+        }
+    }    
+}

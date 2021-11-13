@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+footer {
+  width: 100%;
+  padding: 40px 0;
+  background-color: #fff;
+  border-top: 1px solid #ececec;
+}
+
+footer .footer-container {
+  display: -ms-grid;
+  display: grid;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+  gap: 2rem 0;
+}
+
+footer .footer-container .footer-column {
+  width: 100%;
+  text-align: left;
+}
+
+footer .footer-container .footer-column ul {
+  list-style: none;
+}
+
+footer .footer-container .footer-column ul li img {
+  height: 25px;
+}
+
+footer .footer-container .footer-column ul li .title {
+  font: 0.93rem/35px "Urbanist", sans-serif;
+  letter-spacing: 1px;
+}
+
+footer .footer-container .footer-column ul li .link {
+  font: 0.93rem/25px "Roboto", sans-serif;
+  letter-spacing: 1px;
+  color: black;
+}
+
+footer .footer-container .footer-column ul li .link:hover {
+  color: grey;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+footer .footer-container .footer-column .desktop {
+  display: none;
+}
+
+@media (min-width: 475px) {
+  footer .footer-container {
+    gap: 1.5rem 0;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  footer .footer-container .footer-column {
+    display: -ms-inline-grid;
+    display: inline-grid;
+    justify-items: center;
+  }
+  footer .footer-container .footer-column ul {
+    list-style: none;
+  }
+  footer .footer-container .footer-column ul li img {
+    height: 30px;
+  }
+  footer .footer-container .footer-column ul li .title {
+    font: 0.97rem/35px "Urbanist", sans-serif;
+  }
+  footer .footer-container .footer-column ul li .link {
+    font: 0.97rem/25px "Roboto", sans-serif;
+  }
+  footer .footer-container .footer-column .mobile {
+    display: none;
+  }
+  footer .footer-container .footer-column .desktop {
+    display: inline;
+  }
+}
+
+@media (min-width: 768px) {
+  footer .footer-container {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+  footer .footer-container .footer-column ul li img {
+    height: 33px;
+  }
+  footer .footer-container .footer-column ul li .title {
+    font: 1rem/35px "Urbanist", sans-serif;
+  }
+  footer .footer-container .footer-column ul li .link {
+    font: 1rem/25px "Roboto", sans-serif;
+  }
+}
+/*# sourceMappingURL=footer.css.map */
