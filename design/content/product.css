@@ -1,0 +1,373 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f3f3f36b;
+}
+
+main {
+  min-height: 100vh;
+}
+
+main .collection-section {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ececec;
+  border-radius: 0 0 0 25px;
+}
+
+main .collection-section .collection-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 100px 15px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+main .collection-section .collection-container .collection-container-left {
+  width: 100%;
+}
+
+main .collection-section .collection-container .collection-container-left .title {
+  overflow: hidden;
+  font: 2.6rem/50px "Roboto", sans-serif;
+}
+
+main .collection-section .collection-container .collection-container-left .collection {
+  font: 2.6rem/50px "Italiana", serif;
+  text-transform: uppercase;
+  color: grey;
+}
+
+main .collection-section .collection-container .collection-container-right {
+  display: none;
+  width: 100%;
+}
+
+main .collection-section .collection-container .reveal {
+  display: block;
+  -webkit-animation: reveal 1.7s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+          animation: reveal 1.7s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+}
+
+main .information-section {
+  width: 100%;
+  padding: 50px 0;
+}
+
+main .information-section .information-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 20px 15px 20px 15px;
+  background-color: white;
+  border: 1px solid #ececec;
+  border-radius: 10px;
+}
+
+main .information-section .information-container .information-header {
+  width: 100%;
+  text-align: center;
+}
+
+main .information-section .information-container .information-header .information-header-left {
+  width: 100%;
+  padding: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+main .information-section .information-container .information-header .information-header-left .model {
+  font: 1.7rem/35px "Italiana", serif;
+}
+
+main .information-section .information-container .information-header .information-header-left .ref {
+  font: 0.87rem/35px "Roboto", sans-serif;
+  color: grey;
+}
+
+main .information-section .information-container .information-header .information-header-right {
+  width: 100%;
+}
+
+main .information-section .information-container .information-header .information-header-right .editButton,
+main .information-section .information-container .information-header .information-header-right .deleteButton {
+  margin: 0 10px;
+  font-size: 1.07rem;
+  color: black;
+}
+
+main .information-section .information-container .information-header .information-header-right .editButton:hover,
+main .information-section .information-container .information-header .information-header-right .deleteButton:hover {
+  color: grey;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell {
+  width: 100%;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left {
+  width: 100%;
+  text-align: center;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left .information-image {
+  width: 100%;
+  padding: 40px 0 40px 0;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left .information-image img {
+  height: 200px;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right {
+  width: 100%;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .information-specs-left {
+  width: 50%;
+  text-align: left;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .information-specs-right {
+  width: 50%;
+  text-align: right;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-title {
+  margin-bottom: 5px;
+  font: 1.13rem "Italiana", serif;
+  letter-spacing: 1px;
+}
+
+main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-value {
+  margin-bottom: 20px;
+  font: 1.03rem "Roboto", sans-serif;
+  letter-spacing: 0.5px;
+  color: grey;
+}
+
+main .information-section .information-container .information-body .flickity-prev-next-button {
+  display: none;
+}
+
+main .information-section .information-container .information-body .flickity-page-dots .dot {
+  height: 4px;
+  width: 30px;
+  margin: 0;
+  border-radius: 0;
+}
+
+main .information-section .information-container .information-footer {
+  width: 100%;
+  padding: 50px 0 0 0;
+  text-align: center;
+}
+
+main .information-section .information-container .information-footer .bagButton {
+  width: 100%;
+  padding: 8px;
+  font: 0.93rem "Urbanist", sans-serif;
+  letter-spacing: 1.5px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+main .information-section .information-container .information-footer .bagButton:hover {
+  background-color: grey;
+  cursor: pointer;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+@media (min-width: 475px) {
+  main .collection-section .collection-container {
+    padding: 75px 15px;
+  }
+  main .collection-section .collection-container .collection-container-left {
+    width: 50%;
+    text-align: right;
+  }
+  main .collection-section .collection-container .collection-container-left .title {
+    font: 2.7rem/50px "Roboto", sans-serif;
+  }
+  main .collection-section .collection-container .collection-container-left .collection {
+    font: 2.7rem/50px "Italiana", serif;
+  }
+  main .collection-section .collection-container .collection-container-right {
+    display: inline;
+    width: 50%;
+    text-align: left;
+  }
+  main .collection-section .collection-container .collection-container-right img {
+    height: 200px;
+  }
+  main .information-section {
+    width: 100%;
+    padding: 50px 15px;
+  }
+  main .information-section .information-container {
+    padding: 10px 15px 0 15px;
+  }
+  main .information-section .information-container .information-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main .information-section .information-container .information-header .information-header-left {
+    width: 50%;
+    padding: 10px 0 0 0;
+    text-align: left;
+  }
+  main .information-section .information-container .information-header .information-header-left .model {
+    word-spacing: 100vw;
+    font: 1.9rem/35px "Italiana", serif;
+  }
+  main .information-section .information-container .information-header .information-header-left .ref {
+    font: 0.91rem/35px "Roboto", sans-serif;
+  }
+  main .information-section .information-container .information-header .information-header-right {
+    width: 50%;
+    padding: 10px 0 0 0;
+    text-align: right;
+  }
+  main .information-section .information-container .information-header .information-header-right .editButton,
+  main .information-section .information-container .information-header .information-header-right .deleteButton {
+    margin: 0 0 0 10px;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left .information-image {
+    padding: 50px 0 50px 0;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left .information-image img {
+    height: 225px;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-title {
+    margin-bottom: 5px;
+    font: 1.19rem "Italiana", serif;
+    letter-spacing: 1px;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-value {
+    margin-bottom: 20px;
+    font: 1.09rem "Roboto", sans-serif;
+    letter-spacing: 0.5px;
+  }
+  main .information-section .information-container .information-footer {
+    width: 100%;
+    padding: 75px 0 0 0;
+    text-align: right;
+    margin-left: 15px;
+  }
+  main .information-section .information-container .information-footer .bagButton {
+    width: 200px;
+    padding: 8px;
+    border-radius: 0 0 10px 0;
+  }
+}
+
+@media (min-width: 768px) {
+  main .collection-section .collection-container {
+    padding: 100px 15px;
+  }
+  main .collection-section .collection-container .collection-container-left .title {
+    font: 3.3rem/60px "Roboto", sans-serif;
+  }
+  main .collection-section .collection-container .collection-container-left .collection {
+    font: 3.3rem/60px "Italiana", serif;
+  }
+  main .collection-section .collection-container .collection-container-right img {
+    height: 250px;
+  }
+  main .information-section {
+    width: 100%;
+    padding: 75px 15px;
+  }
+  main .information-section .information-container .information-header .information-header-left .model {
+    font: 2rem/35px "Italiana", serif;
+  }
+  main .information-section .information-container .information-header .information-header-left .ref {
+    font: 0.97rem/35px "Roboto", sans-serif;
+  }
+  main .information-section .information-container .information-header .information-header-right .editButton,
+  main .information-section .information-container .information-header .information-header-right .deleteButton {
+    font-size: 1.2rem;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left {
+    width: 50%;
+    text-align: center;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-left .information-image {
+    padding: 60px 0 60px 0;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right {
+    width: 50%;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs {
+    max-width: 425px;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-title {
+    font: 1.3rem "Italiana", serif;
+  }
+  main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-value {
+    margin-bottom: 30px;
+    font: 1.2rem "Roboto", sans-serif;
+  }
+}
+
+@-webkit-keyframes reveal {
+  0% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@keyframes reveal {
+  0% {
+    -webkit-transform: translate(0, 100%);
+            transform: translate(0, 100%);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+/*# sourceMappingURL=product.css.map */

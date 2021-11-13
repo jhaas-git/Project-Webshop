@@ -1,0 +1,351 @@
+@import '../default/var-reset.scss';
+
+main {
+    min-height: 100vh;
+    .collection-section {
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid #ececec;
+        border-radius: 0 0 0 25px;
+        .collection-container {
+            display: flex;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 100px 15px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;   
+            .collection-container-left {
+                width: 100%;
+                .title {
+                    overflow: hidden;
+                    font: 2.6rem/50px $font-subtext;
+                }
+                .collection {
+                    font: 2.6rem/50px $font-title;
+                    text-transform: uppercase;
+                    color: grey;
+                }
+            }
+            .collection-container-right {
+                display: none;
+                width: 100%;
+            }
+
+            .reveal {
+                display: block;
+                animation: reveal 1.7s cubic-bezier(0.77, 0, 0.175, 1) 0.5s;
+            }
+        }
+    }
+
+    .information-section {
+        width: 100%;
+        padding: 50px 0;
+        .information-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 20px 15px 20px 15px;
+            background-color: white;
+            border: 1px solid #ececec;
+            border-radius: 10px;
+
+            .information-header {
+                width: 100%;
+                text-align: center;
+                .information-header-left {
+                    width: 100%;
+                    padding: 0 0 10px 0;
+                    text-transform: uppercase;    
+                    .model {
+                        font: 1.7rem/35px $font-title;
+                    }
+
+                    .ref {
+                        font: 0.87rem/35px $font-subtext;
+                        color: grey;
+                    }
+                }
+                .information-header-right {
+                    width: 100%;
+                    .editButton,
+                    .deleteButton {
+                        margin: 0 10px;
+                        font-size: 1.07rem;
+                        color: black;
+                    }
+                    .editButton:hover,
+                    .deleteButton:hover {
+                        color: grey;
+                        transition: all 0.15s;
+                    }
+                }
+            }
+
+            .information-body {
+                .main-carousel {
+                    .information-cell {
+                        width: 100%;
+                        .information-cell-left {
+                            width: 100%;
+                            text-align: center;
+                            .information-image {
+                                width: 100%;
+                                padding: 40px 0 40px 0;
+                                img {
+                                    height: 200px;
+                                }
+                            }
+                        }
+                        .information-cell-right {
+                            width: 100%;
+                            .information-specs {
+                                display: flex;
+                                width: 100%;
+                                height: 100%;
+                                align-items: center;
+                                .information-specs-left {
+                                    width: 50%;
+                                    text-align: left;
+                                }
+                                .information-specs-right {
+                                    width: 50%;
+                                    text-align: right;
+                                }
+                                .spec-title {
+                                    margin-bottom: 5px;
+                                    font: 1.13rem $font-title;
+                                    letter-spacing: 1px;
+                                }
+                                .spec-value {
+                                    margin-bottom: 20px;
+                                    font: 1.03rem $font-subtext;
+                                    letter-spacing: 0.5px;
+                                    color: grey;
+                                }
+                            }
+                        }
+                    }
+                }
+                .flickity-prev-next-button {
+                    display: none;
+                }
+                .flickity-page-dots .dot {
+                    height: 4px;
+                    width: 30px;
+                    margin: 0;
+                    border-radius: 0;
+                }
+            }
+
+            .information-footer {
+                width: 100%;
+                padding: 50px 0 0 0;
+                text-align: center;
+
+                .bagButton {
+                    width: 100%;
+                    padding: 8px;
+                    font: 0.93rem $font-text;
+                    letter-spacing: 1.5px;
+                    background-color: black;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                }
+
+                .bagButton:hover {
+                    background-color: grey;
+                    cursor: pointer;
+                    transition: all 0.15s;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 475px) {
+    main {
+        .collection-section {
+            .collection-container {
+                padding: 75px 15px;
+                .collection-container-left {
+                    width: 50%;
+                    text-align: right;
+                    .title {
+                        font: 2.7rem/50px $font-subtext;
+                    }
+                    .collection {
+                        font: 2.7rem/50px $font-title;
+                    }    
+                }
+                .collection-container-right {
+                    display: inline;
+                    width: 50%;
+                    text-align: left;
+                    img {
+                        height: 200px;
+                    }
+                }
+            }
+        }
+
+        .information-section {
+            width: 100%;
+            padding: 50px 15px;
+            .information-container {
+                padding: 10px 15px 0 15px;
+                .information-header {
+                    display: flex;
+                    .information-header-left {
+                        width: 50%;
+                        padding: 10px 0 0 0;
+                        text-align: left; 
+                        .model {
+                            word-spacing: 100vw;
+                            font: 1.9rem/35px $font-title;
+                        }
+                        .ref {
+                            font: 0.91rem/35px $font-subtext;
+                        }
+                    }
+                    .information-header-right {
+                        width: 50%;
+                        padding: 10px 0 0 0;
+                        text-align: right;
+                        .editButton,
+                        .deleteButton {
+                            margin: 0 0 0 10px;
+                        }
+                    }
+                }
+
+                .information-body {
+                    .main-carousel {
+                        .information-cell {
+                            .information-cell-left {
+                                .information-image {
+                                    padding: 50px 0 50px 0;
+                                    img {
+                                        height: 225px;
+                                    }
+                                }
+                            }
+                            .information-cell-right {
+                                .information-specs {
+                                    .spec-title {
+                                        margin-bottom: 5px;
+                                        font: 1.19rem $font-title;
+                                        letter-spacing: 1px;
+                                    }
+                                    .spec-value {
+                                        margin-bottom: 20px;
+                                        font: 1.09rem $font-subtext;
+                                        letter-spacing: 0.5px;
+                                    }    
+                                }
+                            }
+                        }
+                    }
+                }    
+
+                .information-footer {
+                    width: 100%;
+                    padding: 75px 0 0 0;
+                    text-align: right;
+                    margin-left: 15px;
+    
+                    .bagButton {
+                        width: 200px;
+                        padding: 8px;
+                        border-radius: 0 0 10px 0;
+                    }
+                }    
+            }
+        }    
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        .collection-section {
+            .collection-container {
+                padding: 100px 15px;
+                .collection-container-left {
+                    .title {
+                        font: 3.3rem/60px $font-subtext;
+                    }
+                    .collection {
+                        font: 3.3rem/60px $font-title;
+                    }    
+                }
+                .collection-container-right {
+                    img {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+
+        .information-section {
+            width: 100%;
+            padding: 75px 15px;
+            .information-container {
+                .information-header {
+                    .information-header-left {
+                        .model {
+                            font: 2rem/35px $font-title;
+                        }
+                        .ref {
+                            font: 0.97rem/35px $font-subtext;
+                        }
+                    }
+                    .information-header-right {
+                        .editButton,
+                        .deleteButton {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+
+                .information-body {
+                    .main-carousel {
+                        .information-cell {
+                            display: flex;
+                            .information-cell-left {
+                                width: 50%;
+                                text-align: center;
+                                .information-image {
+                                    padding: 60px 0 60px 0;
+                                }
+                            }
+                            .information-cell-right {
+                                width: 50%;
+                                .information-specs {
+                                    max-width: 425px;
+                                    .spec-title {
+                                        font: 1.3rem $font-title;
+                                    }
+                                    .spec-value {
+                                        margin-bottom: 30px;
+                                        font: 1.2rem $font-subtext;
+                                    }    
+                                }
+                            }
+                        }
+                    }
+                }
+        
+            }
+        }  
+    }
+}
+
+@keyframes reveal {
+    0% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0);
+    }
+}
