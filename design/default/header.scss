@@ -1,0 +1,147 @@
+@import 'var-reset.scss';
+
+.lock-scroll {
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    border-bottom: 1px solid #ececec;
+    background-color: #fff;
+    .navigation-mobile  {
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+    }
+    #menu {
+        visibility: hidden;
+        position: absolute;
+        width: 100%;
+        height: 0;
+        margin-top: 80px;
+        top: 0;
+        text-align: center;
+        transition: 0.6s;
+        z-index: 1;
+    }
+    #menu.overlay {
+        visibility: visible;
+        height: 100vh; 
+    }
+    .navigation-container {
+        max-width: 1280px;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+        .navigation-content {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: space-between;
+            .navigation-content-center {
+                position: absolute;
+                left: 50%;
+                transform: translate(-50%);
+                img {
+                    height: 25px;
+                }
+            }
+            .navigation-content-left-links,
+            .navigation-content-right-links {
+                list-style: none;
+                li {
+                    display: inline;
+                }
+                .links {
+                    padding: 0 10px 0 0;
+                    font: 0.97rem $font-text;
+                    letter-spacing: 1.5px;
+                    color: black;    
+                }
+                .bi {
+                    padding: 0 0 0 10px;
+                    font-size: 1.18rem;
+                    color: black;    
+                }
+                .links:hover, .bi:hover {
+                    color: grey;
+                    transition: all 0.15s;
+                }
+            }
+            #mobile-menu {
+                cursor: pointer;
+                width: 18px;
+                height: 30px;
+                overflow: visible;
+                position: relative;
+                z-index: 2;
+            }
+            #mobile-menu span,
+            #mobile-menu span:before,
+            #mobile-menu span:after {
+                background: black;
+                display: block;
+                height: 1px;
+                opacity: 1;
+                position: absolute;
+                transition: 0.25s ease-in-out;
+            }
+            #mobile-menu span:before,
+            #mobile-menu span:after {
+                content: "";
+            }
+            #mobile-menu span {
+                right: 0px;
+                top: 20px;
+                width: 20px;
+            }
+            #mobile-menu span:before {
+                left: 0;
+                top: -8px;
+                width: 20px;
+            }
+            #mobile-menu.close span {
+                transform: rotate(-45deg);
+                top: 13px;
+                width: 20px;
+            }
+            #mobile-menu.close span:before {
+                top: 0px;
+                transform: rotate(-90deg);
+                width: 20px;
+            }
+            #mobile-menu.close span:after {
+                top: 0px;
+                left: 0px;
+                transform: rotate(90deg);
+                opacity: 0;
+                width: 0px;
+            }
+            .desktop {
+                display: none;
+            }
+        }
+    }    
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 100px;
+        .navigation-container {
+            .navigation-content {
+                .navigation-content-center {
+                    img {
+                        height: 30px;
+                    }
+                }
+                .mobile {
+                    display: none;
+                }
+                .desktop {
+                    display: inline;
+                }
+            }
+        }    
+    }
+}
