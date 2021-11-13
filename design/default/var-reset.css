@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+/*# sourceMappingURL=var-reset.css.map */
