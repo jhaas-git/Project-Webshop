@@ -1,0 +1,99 @@
+@import '../default/var-reset.scss';
+
+main {
+    min-height: 100vh;
+    background-color: white;
+    .watch-results-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px 15px 150px 15px;
+        .watch-results-container {
+            display: grid;
+            gap: 1rem 0;
+            grid-template-columns: repeat(1, 1fr);
+            .product-display {
+                width: 100%;
+                text-align: center;
+                background-color: #f1f1f134;
+                border: 1px solid #f3f3f3;
+                border-radius: 5px;
+                .product-image {
+                    width: 100%;
+                    padding: 25px 0 0 0;
+                    img {
+                        width: 130px;
+                    }
+                }
+                .product-values {
+                    width: 100%;
+                    padding: 15px 10px 25px 10px;
+                    ul {
+                        list-style: none;
+                        #model-name {
+                            font: bold 1.2rem $font-title;
+                            letter-spacing: 1px;
+                            word-spacing: 100vw;
+                            color: black;
+                        }
+                        #model-price {
+                            font: bold 0.9rem/35px $font-subtext;
+                            letter-spacing: 1px;
+                            color: grey;
+                        }
+                    }
+                }
+            }
+            .product-display:hover {
+                background-color: #e0bc8c73;
+                border: 1px solid #e0bc8c73;
+                transition: 0.2s;
+            }
+        }
+    }
+}
+
+@media (min-width: 550px) {
+    main {
+        .watch-results-section {
+            .watch-results-container {
+                gap: 1rem 1rem;
+                grid-template-columns: repeat(2, 1fr);
+                .product-display {
+                    .product-image {
+                        img {
+                            width: 140px;
+                        }
+                    }
+                }    
+            }    
+        }
+    }    
+}
+
+@media (min-width: 850px) {
+    main {
+        .watch-results-section {
+            .watch-results-container {
+                gap: 2rem 1rem;
+                grid-template-columns: repeat(3, 1fr);
+                .product-display {
+                    .product-image {
+                        img {
+                            width: 150px;
+                        }
+                    }
+                    .product-values {
+                        ul {
+                            #model-name {
+                                font: bold 1.27rem $font-title;
+                            }
+                            #model-price {
+                                font: bold 0.96rem/35px $font-subtext;
+                            }
+                        }
+                    }
+                }    
+            }    
+        }
+    }    
+}

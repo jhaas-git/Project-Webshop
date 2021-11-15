@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+main {
+  min-height: 100vh;
+  background-color: white;
+}
+
+main .watch-results-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px 15px 150px 15px;
+}
+
+main .watch-results-section .watch-results-container {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem 0;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+}
+
+main .watch-results-section .watch-results-container .product-display {
+  width: 100%;
+  text-align: center;
+  background-color: #f1f1f134;
+  border: 1px solid #f3f3f3;
+  border-radius: 5px;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-image {
+  width: 100%;
+  padding: 25px 0 0 0;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-image img {
+  width: 130px;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-values {
+  width: 100%;
+  padding: 15px 10px 25px 10px;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-values ul {
+  list-style: none;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-values ul #model-name {
+  font: bold 1.2rem "Italiana", serif;
+  letter-spacing: 1px;
+  word-spacing: 100vw;
+  color: black;
+}
+
+main .watch-results-section .watch-results-container .product-display .product-values ul #model-price {
+  font: bold 0.9rem/35px "Roboto", sans-serif;
+  letter-spacing: 1px;
+  color: grey;
+}
+
+main .watch-results-section .watch-results-container .product-display:hover {
+  background-color: #e0bc8c73;
+  border: 1px solid #e0bc8c73;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+@media (min-width: 550px) {
+  main .watch-results-section .watch-results-container {
+    gap: 1rem 1rem;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  main .watch-results-section .watch-results-container .product-display .product-image img {
+    width: 140px;
+  }
+}
+
+@media (min-width: 850px) {
+  main .watch-results-section .watch-results-container {
+    gap: 2rem 1rem;
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
+  }
+  main .watch-results-section .watch-results-container .product-display .product-image img {
+    width: 150px;
+  }
+  main .watch-results-section .watch-results-container .product-display .product-values ul #model-name {
+    font: bold 1.27rem "Italiana", serif;
+  }
+  main .watch-results-section .watch-results-container .product-display .product-values ul #model-price {
+    font: bold 0.96rem/35px "Roboto", sans-serif;
+  }
+}
+/*# sourceMappingURL=watches.css.map */
