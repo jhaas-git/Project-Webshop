@@ -1,0 +1,112 @@
+@import '../default/var-reset.scss';
+
+main {
+    height: 100vh;
+    .account-section {
+        width: 100%;
+        padding: 100px 15px;
+        .account-form-container {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 25px 15px;
+            background-color: #fff;
+            border: 0.5px solid #ececec;
+            border-radius: 8px;
+            .account-form-header {
+                padding: 0 0 25px 0;
+                text-align: center;
+                img {
+                    height: 25px;
+                }
+            }
+            .account-form-body {
+                animation: fadeEffect 0.7s;
+                .form-title {
+                    font: 1rem $font-subtext;
+                    letter-spacing: 1px;
+                    padding: 0 0 10px 0;
+                }
+                .form-row {
+                    display: grid;
+                    .input-container {
+                        width: 100%;
+                        input {
+                            width: 100%;
+                            margin: 5px 0 20px 0;
+                            padding: 10px 0 10px 30px;
+                            font: 0.91rem $font-subtext;
+                            letter-spacing: 1px;
+                            background-color: #f3f3f32f;
+                            color: black;
+                            border: 0.5px solid #ececec;
+                            border-radius: 5px;
+                            outline: none;
+                            background-repeat: no-repeat;
+                            background-position: 5px;
+                        }
+                        input:hover, 
+                        input:focus {
+                            border: 0.5px solid black;
+                            transition: 0.25s;            
+                        }
+                        #lname {
+                            padding: 10px 0 10px 5px;
+                        }
+                        #fname {
+                            background-image: url('../../media/form/person-plus.svg');
+                        }
+                        #mail {
+                            background-image: url('../../media/form/envelope.svg');
+                        }
+                        #password {
+                            background-image: url('../../media/form/shield.svg');
+                        }            
+                    }
+                }     
+                .registerBtn {
+                    width: 100%;
+                    margin: 0 0 20px 0;
+                    padding: 8px 0;
+                    font: 0.87rem $font-subtext;
+                    letter-spacing: 1px;
+                    background-color: black;
+                    color: #fff;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+                }   
+                .registerBtn:hover {
+                    background-color: grey;
+                    transition: 0.25s;            
+                }   
+                .tablink {
+                    font: 0.92rem $font-text;
+                    color: gray;
+                    text-align: center;
+                    cursor: pointer;
+                }    
+            }
+        }
+    }
+}
+
+@media (min-width: 475px) {
+    main {
+        .account-section {
+            .account-form-container {
+                .account-form-body {
+                    #half {
+                        display: grid;
+                        gap: 10px;
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

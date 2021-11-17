@@ -36,7 +36,7 @@
 
 <?php include 'default/footer.php'; ?>
 
-<script src="../javascript/menu.js"></script>
+<script src="../javascript/default.js"></script>
 
 </body>
 </html>

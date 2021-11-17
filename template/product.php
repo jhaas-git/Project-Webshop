@@ -1,3 +1,11 @@
+<!-- SELECT * FROM watches
+INNER JOIN collections
+ON watches.collections_idCollection = collections.idCollection
+INNER JOIN movements
+ON watches.movements_idMovement = movements.idMovement
+WHERE watches.movements_idMovement = movements.idMovement
+AND watches.collections_idCollection = collections.idCollection; -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +67,7 @@
                     </div>
                 </div>
                 <div class="information-cell">
-                    <div class="information-cell-left"><div class="information-image"><img src="../media/test/watch.png" alt=""></div></div>
+                    <div class="information-cell-left"><div class="information-image"><img src="../media/test/calibre.png" alt=""></div></div>
                     <div class="information-cell-right">
                         <div class="information-specs">
                             <div class="information-specs-left">
@@ -90,7 +98,7 @@
 
 <?php include 'default/footer.php'; ?>
 
-<script src="../javascript/menu.js"></script>
+<script src="../javascript/default.js"></script>
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </body>

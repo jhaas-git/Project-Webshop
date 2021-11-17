@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+main {
+  height: 100vh;
+}
+
+main .account-section {
+  width: 100%;
+  padding: 100px 15px;
+}
+
+main .account-section .account-form-container {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 25px 15px;
+  background-color: #fff;
+  border: 0.5px solid #ececec;
+  border-radius: 8px;
+}
+
+main .account-section .account-form-container .account-form-header {
+  padding: 0 0 25px 0;
+  text-align: center;
+}
+
+main .account-section .account-form-container .account-form-header img {
+  height: 25px;
+}
+
+main .account-section .account-form-container .account-form-body {
+  -webkit-animation: fadeEffect 0.7s;
+          animation: fadeEffect 0.7s;
+}
+
+main .account-section .account-form-container .account-form-body .form-title {
+  font: 1rem "Roboto", sans-serif;
+  letter-spacing: 1px;
+  padding: 0 0 10px 0;
+}
+
+main .account-section .account-form-container .account-form-body .form-row {
+  display: -ms-grid;
+  display: grid;
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container {
+  width: 100%;
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container input {
+  width: 100%;
+  margin: 5px 0 20px 0;
+  padding: 10px 0 10px 30px;
+  font: 0.91rem "Roboto", sans-serif;
+  letter-spacing: 1px;
+  background-color: #f3f3f32f;
+  color: black;
+  border: 0.5px solid #ececec;
+  border-radius: 5px;
+  outline: none;
+  background-repeat: no-repeat;
+  background-position: 5px;
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container input:hover,
+main .account-section .account-form-container .account-form-body .form-row .input-container input:focus {
+  border: 0.5px solid black;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container #lname {
+  padding: 10px 0 10px 5px;
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container #fname {
+  background-image: url("../../media/form/person-plus.svg");
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container #mail {
+  background-image: url("../../media/form/envelope.svg");
+}
+
+main .account-section .account-form-container .account-form-body .form-row .input-container #password {
+  background-image: url("../../media/form/shield.svg");
+}
+
+main .account-section .account-form-container .account-form-body .registerBtn {
+  width: 100%;
+  margin: 0 0 20px 0;
+  padding: 8px 0;
+  font: 0.87rem "Roboto", sans-serif;
+  letter-spacing: 1px;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+main .account-section .account-form-container .account-form-body .registerBtn:hover {
+  background-color: grey;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+main .account-section .account-form-container .account-form-body .tablink {
+  font: 0.92rem "Urbanist", sans-serif;
+  color: gray;
+  text-align: center;
+  cursor: pointer;
+}
+
+@media (min-width: 475px) {
+  main .account-section .account-form-container .account-form-body #half {
+    display: -ms-grid;
+    display: grid;
+    gap: 10px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@-webkit-keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=account.css.map */
