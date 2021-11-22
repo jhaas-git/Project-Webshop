@@ -21,6 +21,18 @@ main {
             }
             .account-form-body {
                 animation: fadeEffect 0.7s;
+                .message {
+                    margin: 0 0 20px 0;
+                    font: 0.97rem $font-subtext;
+                    letter-spacing: 1.5px;
+                    text-align: center;
+                }
+                #success {
+                    color: #54aa54;
+                }
+                #failed {
+                    color: #c02d23;
+                }
                 .form-title {
                     font: 1rem $font-subtext;
                     letter-spacing: 1px;

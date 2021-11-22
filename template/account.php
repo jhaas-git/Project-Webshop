@@ -1,3 +1,9 @@
+<?php 
+
+include '../model/accountFunc.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,31 +37,37 @@
                 </div>   
                 <button type="submit" class="registerBtn">complete authentication</button>
                 </form> 
-                <p class="tablink" onclick="openForm(event, 'register')">Don't have an account? Sign up!</p>
+                <p class="tablink" onclick="openForm(event, 'register')" id="defaultOpen">Don't have an account? Sign up!</p>
             </div>    
 
             <div class="account-form-body formTab" id="register">
+                <?php if ($_GET['registration'] == 'successful') {
+                    echo '<p class="message" id="success">Registration successful. <br>You can now sign in.</p>';
+                } elseif ($_GET['registration'] == 'failed') {
+                    echo '<p class="message" id="failed">e-mail already in use. <br> Please try another.</p>';
+                }
+                ?>
                 <p class="form-title">Sign up</p>
-                <form action="#" method="post">
+                <form action="../index.php?accountFunc=1" method="post">
                 <div class="form-row" id="half">
                     <div class="input-container">
-                        <input type="text" id="fname" name="" placeholder="First name" required>    
+                        <input type="text" id="fname" name="firstname" placeholder="First name" required>    
                     </div>
                     <div class="input-container">
-                        <input type="text" id="lname" name="" placeholder="Last name" required>    
+                        <input type="text" id="lname" name="lastname" placeholder="Last name" required>    
                     </div>
                 </div>    
                 <div class="form-row">
                     <div class="input-container">
-                        <input type="text" id="mail" name="" placeholder="Mail" required>    
+                        <input type="text" id="mail" name="mailaddress" placeholder="Mail" required>    
                     </div>
                     <div class="input-container">
-                        <input type="password" id="password" name="" placeholder="Password" required>    
+                        <input type="password" id="password" name="pass" placeholder="Password" required>    
                     </div>
                 </div>   
                 <button type="submit" class="registerBtn">complete registration</button>
                 </form> 
-                <p class="tablink" onclick="openForm(event, 'login')" id="defaultOpen">already have an account? Sign in!</p>
+                <p class="tablink" onclick="openForm(event, 'login')">already have an account? Sign in!</p>
             </div>    
             </div>
         </div>

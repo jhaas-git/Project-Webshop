@@ -47,6 +47,21 @@ main .account-section .account-form-container .account-form-body {
           animation: fadeEffect 0.7s;
 }
 
+main .account-section .account-form-container .account-form-body .message {
+  margin: 0 0 20px 0;
+  font: 0.97rem "Roboto", sans-serif;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+
+main .account-section .account-form-container .account-form-body #success {
+  color: #54aa54;
+}
+
+main .account-section .account-form-container .account-form-body #failed {
+  color: #c02d23;
+}
+
 main .account-section .account-form-container .account-form-body .form-title {
   font: 1rem "Roboto", sans-serif;
   letter-spacing: 1px;
