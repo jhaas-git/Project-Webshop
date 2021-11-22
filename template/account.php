@@ -25,14 +25,18 @@ include '../model/accountFunc.php';
         <div class="account-form-container">
             <div class="account-form-header"><img src="../media/brand/logo-black-sm.svg" alt=""></div>
             <div class="account-form-body formTab" id="login">
+                <?php if ($_GET['authentication'] == 'failed') {
+                    echo '<p class="message" id="failed">Incorrect password.</p';
+                }
+                ?>
                 <p class="form-title">Sign in</p>
-                <form action="#" method="post"> 
+                <form action="../index.php?accountFunc=2" method="post"> 
                 <div class="form-row">
                     <div class="input-container">
-                        <input type="text" id="mail" name="" placeholder="Mail" required>    
+                        <input type="text" id="mail" name="mailaddress" placeholder="Mail" required>    
                     </div>
                     <div class="input-container">
-                        <input type="password" id="password" name="" placeholder="Password" required>    
+                        <input type="password" id="password" name="pass" placeholder="Password" required>    
                     </div>
                 </div>   
                 <button type="submit" class="registerBtn">complete authentication</button>

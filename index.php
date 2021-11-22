@@ -6,6 +6,8 @@ if (isset($_GET['accountFunc'])) {
     switch ($_GET['accountFunc']) {
         case 1:registerAccount();
         break;
+        case 2:authenticateAccount();
+        break;
     }
 }
 

@@ -39,4 +39,42 @@ function registerAccount(){
         header("location: template/account.php?registration=failed");
     }
 }
+
+function authenticateAccount(){
+    require 'model/config/connect.php';
+
+    session_start();
+
+    $mail = $_POST['mailaddress'];
+    $pass = $_POST['pass'];
+    $hash = hash('sha256', $pass);
+
+    // Fetch account details where mail address matches the submitted mail value.
+    $authenticateAccount = "SELECT idAccount, sFirstName, sPassword, role_idRole 
+    FROM account WHERE sMailAddress =:mail";
+
+    $stmt = $pdo->prepare($authenticateAccount);
+    $result = $stmt->execute([
+        ':mail' => $mail
+    ]);
+
+    if ($stmt->rowCount() == 1){
+        $account = $stmt->fetch(PDO::FETCH_ASSOC);
+        // Make sure the submitted value equals the stored password value.
+        if($hash == $account['sPassword']){
+            $_SESSION['signedin'] = TRUE;
+            $_SESSION['idAccount'] = $account['idAccount'];
+            $_SESSION['sFirstName'] = $account['sFirstName'];
+            $_SESSION['role_idRole'] = $account['role_idRole'];
+
+            header("Location: template/profile.php");
+            // Redirect below might be useful later.
+            // header("Location: template/profile.php?user=". $account['idAccount'] ."");
+        } else {
+            // When the submitted value doesn't equal the stored password value,
+            // Redirect the user to the account.php page displaying an error.
+            header("Location: template/account.php?authentication=failed");
+        }
+    }
+}
 ?>
