@@ -28,7 +28,103 @@ if (!isset($_SESSION['signedin'])) {
 
 <?php include 'default/header.php'; ?>
 
-<main style="min-height: 100vh;"></main>
+<main>
+    <section class="profile-information-section">
+        <div class="profile-information-container">
+            <div class="profile-information-header">
+            <?php if ($_GET['editProfile'] == 'true') {
+            echo '
+                <div class="header-title">Update profile</div>
+                <div class="header-actions"><a href="profile.php" id="cancel">cancel</a></div>';
+            } elseif ($_GET['changePass'] == 'true') {
+                echo '
+                <div class="header-title">Change Password</div>
+                <div class="header-actions"><a href="profile.php" id="cancel">cancel</a></div>';
+            } else {
+            echo '
+                <div class="header-title">Profile information</div>
+                <div class="header-actions">
+                    <a href="profile.php?editProfile=true" class="bi bi-pencil actionButton"></a>
+                    <a href="profile.php?changePass=true" class="bi bi-shield-lock actionButton"></a>
+                </div>';
+            } ?>
+            </div>
+            <?php 
+            // When clicking the pencil, the editProfile state will be true.
+            // This will display the form used for changing profile details.
+            if ($_GET['editProfile'] == 'true') {
+            echo '
+                <form action="#" method="post">
+                <div class="profile-information-body">
+                    <div class="body-content">
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">First name *</label><input class="editInput" type="text" id="" name="" placeholder="Audemars" required></div>
+                            <div class="input-container"><label class="title">Last name *</label><input class="editInput" type="text" id="" name="" placeholder="Piguet" required></div>
+                        </div>
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Date of Birth</label><input class="editInput" type="date" id="" name="" placeholder=""></div>
+                            <div class="input-container"><label class="title">E-mail *</label><input class="editInput" type="email" id="" name="" placeholder="info@audemarspiguet.com" required></div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">City</label><input class="editInput" type="text" id="" name="" placeholder="Le Brassus"></div>
+                            <div class="input-container"><label class="title">Street</label><input class="editInput" type="text" id="" name="" placeholder="Route de France"></div>
+                        </div>
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="text" id="" name="" placeholder="15"></div>
+                            <div class="input-container"><label class="title">Postal code</label><input class="editInput" type="text" id="" name="" placeholder="1348 LB"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-information-footer"><button type="submit" class="updateButton">Update profile</button></div>
+                </form>';
+            } 
+            // When clicking the shield lock, the changePassword state will be true.
+            // This will display the change password form.
+            elseif ($_GET['changePass'] == 'true') {
+            echo '
+            <form action="#" method="post">
+            <div class="profile-information-body password">
+                <div class="body-content">
+                    <div class="content-row">
+                        <div class="input-container"><label class="title">New password</label><input class="editInput" type="password" id="" name="" placeholder="************"></div>
+                        <div class="input-container"><label class="title">Repeat new password</label><input class="editInput" type="password" id="" name="" placeholder="************" required></div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-information-footer"><button type="submit" class="updateButton">Change password</button></div>
+            </form>';
+            } 
+            // When opening the profile.php page this (your profile information) will be displayed on default.
+            else {
+                echo '
+                <div class="profile-information-body">
+                    <div class="body-content">
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">First name</label><p class="value">echo first name</p></div>
+                            <div class="input-container"><label class="title">Last name</label><p class="value">echo last name</p></div>
+                        </div>
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Date of Birth</label><p class="value">echo date of birth</p></div>
+                            <div class="input-container"><label class="title">E-mail</label><p class="value">echo </p></div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">City</label><p class="value">echo city</p></div>
+                            <div class="input-container"><label class="title">Street</label><p class="value">echo street</p></div>
+                        </div>
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">House number</label><p class="value">echo house number</p></div>
+                            <div class="input-container"><label class="title">Postal code</label><p class="value">echo postal code</p></div>
+                        </div>
+                    </div>
+                </div>';
+            }?>
+        </div>
+    </section>
+</main>
 
 <?php include 'default/footer.php'; ?>
 

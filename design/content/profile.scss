@@ -1,0 +1,134 @@
+@import '../default/var-reset.scss';
+
+main {
+    min-height: 100vh;
+    .profile-information-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px 15px;
+
+        .profile-information-container {
+            width: 100%;
+            padding: 0 10px;
+            background-color: #fff;
+            border: 0.5px solid #ececec;
+            border-radius: 8px;
+            .profile-information-header {
+                display: flex;
+                padding: 15px 0 0 0;
+                justify-content: space-between;
+                .header-title {
+                    font: bold 1rem $font-text;
+                    text-transform: uppercase;
+                    letter-spacing: 1.5px;
+                }
+                .header-actions {
+                    .actionButton {
+                        margin-left: 10px;
+                        font: bold 1rem;
+                        color: black;
+                    }  
+                    #cancel {
+                        font: 0.93rem $font-text;
+                        color: lightgray;
+                        border-bottom: 1px solid;
+                    }  
+                    #cancel:hover {
+                        color: black;
+                        transition: all 0.15s;
+                    }
+                }
+            }
+            .profile-information-body {
+                display: grid;
+                padding: 30px 0 20px 0;
+                .body-content {
+                    min-height: 200px;
+                    .content-row {
+                        display: grid;
+                        .title {
+                            font: bold 0.93rem/35px $font-subtext;
+                            letter-spacing: 1px;
+                        }
+                        .value {
+                            padding: 0 0 15px 0;
+                            font: 0.93rem/35px $font-text;
+                            letter-spacing: 1px;
+                        }
+                        .editInput {
+                            width: 100%;
+                            margin: 5px 0 20px 0;
+                            padding: 10px 0 10px 8px;
+                            font: 0.87rem $font-subtext;
+                            letter-spacing: 1px;
+                            background-color: #f3f3f32f;
+                            color: black;
+                            border: 0.5px solid #ececec;
+                            border-radius: 5px;
+                            outline: none;
+                        }
+                        .editInput:hover {
+                            background-color: #f3f3f36b;
+                            border: 0.5px solid black;
+                            transition: 0.25s;            
+                        }
+                    }
+                }
+            }
+            .password {
+                max-width: 500px;
+                margin: 0 auto;
+                display: flex;
+                .body-content {
+                    width: 100%;
+                    .content-row {
+                        width: 100%;
+                        .editInput {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .profile-information-footer {
+                padding: 0 0 20px 0;
+                text-align: right;
+                .updateButton {
+                    padding: 8px 10px;
+                    font: 0.87rem $font-subtext;
+                    letter-spacing: 1px;
+                    background-color: black;
+                    color: #fff;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+                }
+                .updateButton:hover {
+                    background-color: grey;
+                    transition: 0.25s;            
+                } 
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    main {
+        .profile-information-section {
+            .profile-information-container {
+                .profile-information-header {
+
+                }
+                .profile-information-body {
+                    gap: 25px;
+                    grid-template-columns: repeat(2, 1fr);
+                    .body-content {
+                        #half {
+                            gap: 25px;
+                            grid-template-columns: repeat(2, 1fr);        
+                        }
+                    }
+                }    
+            }
+        }
+    }
+}
