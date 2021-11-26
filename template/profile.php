@@ -10,6 +10,8 @@ if (!isset($_SESSION['signedin'])) {
     exit;
 }
 
+$profileResult = fetchProfileInformation();
+
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +74,7 @@ if (!isset($_SESSION['signedin'])) {
                             <div class="input-container"><label class="title">Street</label><input class="editInput" type="text" id="" name="" placeholder="Route de France"></div>
                         </div>
                         <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="text" id="" name="" placeholder="15"></div>
+                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="number" id="" name="" placeholder="15"></div>
                             <div class="input-container"><label class="title">Postal code</label><input class="editInput" type="text" id="" name="" placeholder="1348 LB"></div>
                         </div>
                     </div>
@@ -102,22 +104,22 @@ if (!isset($_SESSION['signedin'])) {
                 <div class="profile-information-body">
                     <div class="body-content">
                         <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">First name</label><p class="value">echo first name</p></div>
-                            <div class="input-container"><label class="title">Last name</label><p class="value">echo last name</p></div>
+                            <div class="input-container"><label class="title">First name</label><p class="value">'. $profileResult['sFirstName'] .'</p></div>
+                            <div class="input-container"><label class="title">Last name</label><p class="value">'. $profileResult['sLastName'] .'</p></div>
                         </div>
                         <div class="content-row">
-                            <div class="input-container"><label class="title">Date of Birth</label><p class="value">echo date of birth</p></div>
-                            <div class="input-container"><label class="title">E-mail</label><p class="value">echo </p></div>
+                            <div class="input-container"><label class="title">Date of Birth</label><p class="value">'. $profileResult['dDateOfBirth'] .'</p></div>
+                            <div class="input-container"><label class="title">E-mail</label><p class="value">'. $profileResult['sMailAddress'] .'</p></div>
                         </div>
                     </div>
                     <div class="body-content">
                         <div class="content-row">
-                            <div class="input-container"><label class="title">City</label><p class="value">echo city</p></div>
-                            <div class="input-container"><label class="title">Street</label><p class="value">echo street</p></div>
+                            <div class="input-container"><label class="title">City</label><p class="value">'. $profileResult['sCity'] .'</p></div>
+                            <div class="input-container"><label class="title">Street</label><p class="value">'. $profileResult['sStreetName'] .'</p></div>
                         </div>
                         <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">House number</label><p class="value">echo house number</p></div>
-                            <div class="input-container"><label class="title">Postal code</label><p class="value">echo postal code</p></div>
+                            <div class="input-container"><label class="title">House number</label><p class="value">'. $profileResult['iHouseNumber'] .'</p></div>
+                            <div class="input-container"><label class="title">Postal code</label><p class="value">'. $profileResult['sPostalCode'] .'</p></div>
                         </div>
                     </div>
                 </div>';

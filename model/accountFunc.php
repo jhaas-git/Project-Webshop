@@ -77,4 +77,22 @@ function authenticateAccount(){
         }
     }
 }
+
+function fetchProfileInformation(){
+    require 'config/connect.php';
+
+    // Select the relevant information about the user. This will be displayed on the profile page.
+    $selectProfileInformation = 'SELECT sFirstName, sLastName, dDateOfBirth, sCity, sStreetName, iHouseNumber, sPostalCode, sMailAddress
+    FROM account
+    WHERE idAccount =:idAccount';
+
+    $statement = $pdo->prepare($selectProfileInformation);
+    $statement->execute([
+        ':idAccount' => $_SESSION['idAccount']
+    ]);
+
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
+    $pdo=null;
+    return $row;
+}
 ?>
