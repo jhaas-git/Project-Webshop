@@ -95,4 +95,40 @@ function fetchProfileInformation(){
     $pdo=null;
     return $row;
 }
+
+function editProfileInformation(){
+    require 'model/config/connect.php';
+
+    session_start();
+
+    $fname = $_POST['firstname'];
+    $lname = $_POST['lastname'];
+    $birthday = $_POST['birthdate'];
+    $mail = $_POST['mailaddress'];
+    $city = $_POST['city'];
+    $street = $_POST['street'];
+    $number = $_POST['housenumber'];
+    $postalcode = $_POST['postal'];
+
+    // Updating any of the fields, values will be assigned to above variables during execution.
+    $updateProfileInformation = 'UPDATE account
+    SET sFirstName = :firstname, sLastName = :lastname, dDateOfBirth = :birthdate, sCity = :city, 
+    sStreetName = :street, iHouseNumber = :number, sPostalCode = :postal, sMailAddress = :mail
+    WHERE idAccount =:idAccount';
+
+    $statement = $pdo->prepare($updateProfileInformation);
+    $statement->execute([
+        ':firstname' => $fname,
+        ':lastname' => $lname,
+        ':birthdate' => $birthday,
+        ':city' => $city,
+        ':street' => $street,
+        ':number' => $number,
+        ':postal' => $postalcode,
+        ':mail' => $mail,
+        ':idAccount' => $_SESSION['idAccount']
+    ]);
+    
+    header("Location: template/profile.php?editProfile=successful");
+}
 ?>

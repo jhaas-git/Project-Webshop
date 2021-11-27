@@ -30,6 +30,18 @@ $profileResult = fetchProfileInformation();
 
 <?php include 'default/header.php'; ?>
 
+<!-- Display error or success messages when needed. -->
+<?php if ($_GET['editProfile'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Profile successfully updated.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+}
+?>
+
 <main>
     <section class="profile-information-section">
         <div class="profile-information-container">
@@ -56,26 +68,26 @@ $profileResult = fetchProfileInformation();
             // This will display the form used for changing profile details.
             if ($_GET['editProfile'] == 'true') {
             echo '
-                <form action="#" method="post">
+                <form action="../index.php?accountFunc=3" method="post">
                 <div class="profile-information-body">
                     <div class="body-content">
                         <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">First name *</label><input class="editInput" type="text" id="" name="" placeholder="Audemars" required></div>
-                            <div class="input-container"><label class="title">Last name *</label><input class="editInput" type="text" id="" name="" placeholder="Piguet" required></div>
+                            <div class="input-container"><label class="title">First name *</label><input class="editInput" type="text" name="firstname" value="'. $profileResult['sFirstName'] .'" required></div>
+                            <div class="input-container"><label class="title">Last name *</label><input class="editInput" type="text" name="lastname" value="'. $profileResult['sLastName'] .'" required></div>
                         </div>
                         <div class="content-row">
-                            <div class="input-container"><label class="title">Date of Birth</label><input class="editInput" type="date" id="" name="" placeholder=""></div>
-                            <div class="input-container"><label class="title">E-mail *</label><input class="editInput" type="email" id="" name="" placeholder="info@audemarspiguet.com" required></div>
+                            <div class="input-container"><label class="title">Date of Birth</label><input class="editInput" type="date" name="birthdate" value="'. $profileResult['dDateOfBirth'] .'"></div>
+                            <div class="input-container"><label class="title">E-mail *</label><input class="editInput" type="email" name="mailaddress" value="'. $profileResult['sMailAddress'] .'" required></div>
                         </div>
                     </div>
                     <div class="body-content">
                         <div class="content-row">
-                            <div class="input-container"><label class="title">City</label><input class="editInput" type="text" id="" name="" placeholder="Le Brassus"></div>
-                            <div class="input-container"><label class="title">Street</label><input class="editInput" type="text" id="" name="" placeholder="Route de France"></div>
+                            <div class="input-container"><label class="title">City</label><input class="editInput" type="text" name="city" value="'. $profileResult['sCity'] .'"></div>
+                            <div class="input-container"><label class="title">Street</label><input class="editInput" type="text" name="street" value="'. $profileResult['sStreetName'] .'"></div>
                         </div>
                         <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="number" id="" name="" placeholder="15"></div>
-                            <div class="input-container"><label class="title">Postal code</label><input class="editInput" type="text" id="" name="" placeholder="1348 LB"></div>
+                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="number" name="housenumber" value="'. $profileResult['iHouseNumber'] .'"></div>
+                            <div class="input-container"><label class="title">Postal code</label><input class="editInput" type="text" name="postal" value="'. $profileResult['sPostalCode'] .'"></div>
                         </div>
                     </div>
                 </div>

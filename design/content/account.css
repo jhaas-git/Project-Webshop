@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Roboto:wght@100&family=Urbanist:wght@200&display=swap");
 html {
   scroll-behavior: smooth;
 }
@@ -13,6 +14,63 @@ html {
 
 body {
   background-color: #f6f6f6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.message-box {
+  width: 100%;
+}
+
+.message-box .message-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 10px 15px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.message-box .message-content .message {
+  font: 1rem "Urbanist", sans-serif;
+  letter-spacing: 1.5px;
+  color: #fff;
+}
+
+.message-box .message-content .close-message {
+  color: #fff;
+}
+
+.message-box .message-content .close-message:hover {
+  cursor: pointer;
+  color: #ebebeb;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+#failed {
+  background-color: rgba(202, 9, 9, 0.925);
+}
+
+#success {
+  background-color: #31c031e0;
 }
 
 main {
@@ -45,21 +103,6 @@ main .account-section .account-form-container .account-form-header img {
 main .account-section .account-form-container .account-form-body {
   -webkit-animation: fadeEffect 0.7s;
           animation: fadeEffect 0.7s;
-}
-
-main .account-section .account-form-container .account-form-body .message {
-  margin: 0 0 20px 0;
-  font: 0.97rem "Roboto", sans-serif;
-  letter-spacing: 1.5px;
-  text-align: center;
-}
-
-main .account-section .account-form-container .account-form-body #success {
-  color: #54aa54;
-}
-
-main .account-section .account-form-container .account-form-body #failed {
-  color: #c02d23;
 }
 
 main .account-section .account-form-container .account-form-body .form-title {

@@ -8,6 +8,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 2:authenticateAccount();
         break;
+        case 3:editProfileInformation();
+        break;
     }
 }
 

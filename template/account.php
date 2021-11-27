@@ -20,15 +20,39 @@ include '../model/accountFunc.php';
 
 <?php include 'default/header.php'; ?>
 
+<!-- Display error or success messages when needed. -->
+<?php if ($_GET['authentication'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Incorrect password.</p>
+            <a href="account.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['registration'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Registration successful.</p>
+            <a href="account.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['registration'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">e-mail already exists.</p>
+            <a href="account.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+}
+?>
+
 <main>
     <section class="account-section">
         <div class="account-form-container">
             <div class="account-form-header"><img src="../media/brand/logo-black-sm.svg" alt=""></div>
             <div class="account-form-body formTab" id="login">
-                <?php if ($_GET['authentication'] == 'failed') {
-                    echo '<p class="message" id="failed">Incorrect password.</p';
-                }
-                ?>
                 <p class="form-title">Sign in</p>
                 <form action="../index.php?accountFunc=2" method="post"> 
                 <div class="form-row">
@@ -45,12 +69,6 @@ include '../model/accountFunc.php';
             </div>    
 
             <div class="account-form-body formTab" id="register">
-                <?php if ($_GET['registration'] == 'successful') {
-                    echo '<p class="message" id="success">Registration successful. <br>You can now sign in.</p>';
-                } elseif ($_GET['registration'] == 'failed') {
-                    echo '<p class="message" id="failed">e-mail already in use. <br> Please try another.</p>';
-                }
-                ?>
                 <p class="form-title">Sign up</p>
                 <form action="../index.php?accountFunc=1" method="post">
                 <div class="form-row" id="half">

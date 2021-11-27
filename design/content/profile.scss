@@ -1,4 +1,5 @@
 @import '../default/var-reset.scss';
+@import '../default/message.scss';
 
 main {
     min-height: 100vh;
@@ -115,9 +116,6 @@ main {
     main {
         .profile-information-section {
             .profile-information-container {
-                .profile-information-header {
-
-                }
                 .profile-information-body {
                     gap: 25px;
                     grid-template-columns: repeat(2, 1fr);

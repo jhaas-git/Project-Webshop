@@ -1,0 +1,33 @@
+@import 'var-reset.scss';
+
+.message-box {
+    width: 100%;
+    .message-content {
+        display: flex;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 10px 15px;
+        justify-content: space-between;
+        .message {
+            font: 1rem $font-text;
+            letter-spacing: 1.5px;
+            color: #fff;
+        }
+        .close-message {
+            color: #fff;
+        }
+        .close-message:hover {
+            cursor: pointer;
+            color: rgb(235, 235, 235);
+            transition: all 0.15s;
+        }
+    }
+}
+
+#failed {
+    background-color: rgba(202, 9, 9, 0.925);
+}
+
+#success {
+    background-color: #31c031e0;
+}
