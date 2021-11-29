@@ -58,7 +58,10 @@ function authenticateAccount(){
         ':mail' => $mail
     ]);
 
-    if ($stmt->rowCount() == 1){
+    // When no results are found, 
+    if ($stmt->rowCount() == 0){
+        header("Location: template/account.php?authentication1=failed");
+    } elseif ($stmt->rowCount() == 1){
         $account = $stmt->fetch(PDO::FETCH_ASSOC);
         // Make sure the submitted value equals the stored password value.
         if($hash == $account['sPassword']){
@@ -73,7 +76,7 @@ function authenticateAccount(){
         } else {
             // When the submitted value doesn't equal the stored password value,
             // Redirect the user to the account.php page displaying an error.
-            header("Location: template/account.php?authentication=failed");
+            header("Location: template/account.php?authentication2=failed");
         }
     }
 }

@@ -1,3 +1,12 @@
+<?php
+
+include '../model/config/connect.php';
+include '../model/productFunc.php';
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +27,9 @@
 
 <section class="watch-results-section">
     <div class="watch-results-container">
-        <div class="product-display">
-            <a href="#">
-            <div class="product-image"><img src="../media/test/watch.png" alt="product-image"></div>
-            <div class="product-values">
-                <ul>
-                    <li id="model-name">Minute Repeater Supersonnerie</li>
-                    <li id="model-price">74.500,00</li>
-                </ul>
-            </div>
-            </a>
-        </div>
+        <?php
+            fetchProducts();
+        ?>
     </div>
 </section>
 

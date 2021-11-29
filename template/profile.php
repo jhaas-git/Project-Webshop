@@ -28,8 +28,6 @@ $profileResult = fetchProfileInformation();
 </head>
 <body>
 
-<?php include 'default/header.php'; ?>
-
 <!-- Display error or success messages when needed. -->
 <?php if ($_GET['editProfile'] == 'successful') {
     echo '
@@ -41,6 +39,8 @@ $profileResult = fetchProfileInformation();
     </div>';
 }
 ?>
+
+<?php include 'default/header.php'; ?>
 
 <main>
     <section class="profile-information-section">

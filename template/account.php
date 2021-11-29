@@ -18,10 +18,16 @@ include '../model/accountFunc.php';
 </head>
 <body>
 
-<?php include 'default/header.php'; ?>
-
 <!-- Display error or success messages when needed. -->
-<?php if ($_GET['authentication'] == 'failed') {
+<?php if ($_GET['authentication1'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Account does not exist.</p>
+            <a href="account.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['authentication2'] == 'failed') {
     echo '
     <div class="message-box" id="failed">
         <div class="message-content">
@@ -47,6 +53,8 @@ include '../model/accountFunc.php';
     </div>';
 }
 ?>
+
+<?php include 'default/header.php'; ?>
 
 <main>
     <section class="account-section">

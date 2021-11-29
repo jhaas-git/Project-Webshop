@@ -120,6 +120,15 @@ main .information-section .information-container .information-header .informatio
   transition: all 0.15s;
 }
 
+main .information-section .information-container .information-header .information-header-right .price {
+  font: 1.3rem "Urbanist", sans-serif;
+  color: gray;
+}
+
+main .information-section .information-container .information-header .information-header-right .price span {
+  color: black;
+}
+
 main .information-section .information-container .information-body .main-carousel .information-cell {
   width: 100%;
 }
