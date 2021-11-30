@@ -10,6 +10,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 3:editProfileInformation();
         break;
+        case 4:accountSignOut();
+        break;
     }
 }
 

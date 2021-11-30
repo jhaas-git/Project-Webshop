@@ -15,7 +15,7 @@ function fetchProducts(){
             <div class="product-values">
                 <ul>
                     <li id="model-name">'. $productInfo["sModelName"] .'</li>
-                    <li id="model-price">'. $productInfo["dPrice"] .'</li>
+                    <li id="model-price">€ '. $productInfo["dPrice"] .'</li>
                 </ul>
             </div>
         </a>

@@ -134,4 +134,11 @@ function editProfileInformation(){
     
     header("Location: template/profile.php?editProfile=successful");
 }
+
+function accountSignOut(){
+    session_start();
+    session_destroy();
+    
+    header("Location: template/watches.php?signOut=successful");
+}
 ?>
