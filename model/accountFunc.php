@@ -135,6 +135,32 @@ function editProfileInformation(){
     header("Location: template/profile.php?editProfile=successful");
 }
 
+function changePassword(){
+    require 'model/config/connect.php';
+    session_start();
+
+    $new = $_POST['newPassword'];
+    $repeat = $_POST['repeatPassword'];
+    $hash = hash('sha256', $repeat);
+
+    // Check if the repeated password is the same as new password.
+    if ($repeat == $new){
+        $updatePass = 'UPDATE account 
+        SET sPassword =:pass
+        WHERE idAccount =:account';  
+
+        $stmt = $pdo->prepare($updatePass);
+        $stmt->execute([
+            ':pass' => $hash,
+            ':account' => $_SESSION['idAccount']
+        ]);
+
+        header("Location: template/account.php?updatePassword=successful");
+    } else {
+        header("Location: template/profile.php?changePass=true&updatePassword=failed");
+    }
+}
+
 function accountSignOut(){
     session_start();
     session_destroy();

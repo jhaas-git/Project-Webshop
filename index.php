@@ -12,6 +12,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 4:accountSignOut();
         break;
+        case 5:changePassword();
+        break;
     }
 }
 

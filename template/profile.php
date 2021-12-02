@@ -37,6 +37,14 @@ $profileResult = fetchProfileInformation();
             <a href="profile.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
+} elseif ($_GET['updatePassword'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Repeated password does not match.</p>
+            <a href="profile.php?changePass=true" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
 }
 ?>
 
@@ -98,12 +106,12 @@ $profileResult = fetchProfileInformation();
             // This will display the change password form.
             elseif ($_GET['changePass'] == 'true') {
             echo '
-            <form action="#" method="post">
+            <form action="../index.php?accountFunc=5" method="post">
             <div class="profile-information-body password">
                 <div class="body-content">
                     <div class="content-row">
-                        <div class="input-container"><label class="title">New password</label><input class="editInput" type="password" id="" name="" placeholder="************"></div>
-                        <div class="input-container"><label class="title">Repeat new password</label><input class="editInput" type="password" id="" name="" placeholder="************" required></div>
+                        <div class="input-container"><label class="title">New password</label><input class="editInput" type="password" name="newPassword" placeholder="************"></div>
+                        <div class="input-container"><label class="title">Repeat new password</label><input class="editInput" type="password" name="repeatPassword" placeholder="************" required></div>
                     </div>
                 </div>
             </div>

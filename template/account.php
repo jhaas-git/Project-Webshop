@@ -51,6 +51,14 @@ include '../model/accountFunc.php';
             <a href="account.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
+} elseif ($_GET['updatePassword'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Password successfully updated.</p>
+            <a href="account.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
 }
 ?>
 
