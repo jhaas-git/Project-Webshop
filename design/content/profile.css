@@ -80,7 +80,7 @@ main {
 main .profile-information-section {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 50px 15px;
+  padding: 25px 15px;
 }
 
 main .profile-information-section .profile-information-container {
@@ -113,13 +113,16 @@ main .profile-information-section .profile-information-container .profile-inform
   color: black;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel {
+main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel,
+main .profile-information-section .profile-information-container .profile-information-header .header-actions #insert {
+  margin: 0 0 0 10px;
   font: 0.93rem "Urbanist", sans-serif;
   color: lightgray;
   border-bottom: 1px solid;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel:hover {
+main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel:hover,
+main .profile-information-section .profile-information-container .profile-information-header .header-actions #insert:hover {
   color: black;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
@@ -151,7 +154,8 @@ main .profile-information-section .profile-information-container .profile-inform
   letter-spacing: 1px;
 }
 
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .editInput {
+main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .editInput,
+main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .insertInput {
   width: 100%;
   margin: 5px 0 20px 0;
   padding: 10px 0 10px 8px;
@@ -196,7 +200,8 @@ main .profile-information-section .profile-information-container .profile-inform
   text-align: right;
 }
 
-main .profile-information-section .profile-information-container .profile-information-footer .updateButton {
+main .profile-information-section .profile-information-container .profile-information-footer .updateButton,
+main .profile-information-section .profile-information-container .profile-information-footer .insertButton {
   padding: 8px 10px;
   font: 0.87rem "Roboto", sans-serif;
   letter-spacing: 1px;
@@ -207,7 +212,8 @@ main .profile-information-section .profile-information-container .profile-inform
   cursor: pointer;
 }
 
-main .profile-information-section .profile-information-container .profile-information-footer .updateButton:hover {
+main .profile-information-section .profile-information-container .profile-information-footer .updateButton:hover,
+main .profile-information-section .profile-information-container .profile-information-footer .insertButton:hover {
   background-color: grey;
   -webkit-transition: 0.25s;
   transition: 0.25s;

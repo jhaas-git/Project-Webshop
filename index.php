@@ -15,6 +15,17 @@ if (isset($_GET['accountFunc'])) {
         case 5:changePassword();
         break;
     }
+} elseif (isset($_GET['productFunc'])) {
+    include 'model/productFunc.php';
+
+    switch ($_GET['productFunc']) {
+        case 1:insertCollection();
+        break;
+        case 2:insertMovement();
+        break;
+        case 3:insertWatch();
+        break;
+    }
 }
 
 ?>

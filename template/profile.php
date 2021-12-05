@@ -2,6 +2,7 @@
 
 include '../model/config/connect.php';
 include '../model/accountFunc.php';
+include '../model/productFunc.php';
 
 session_start();
 if (!isset($_SESSION['signedin'])) {
@@ -43,6 +44,54 @@ $profileResult = fetchProfileInformation();
         <div class="message-content">
             <p class="message">Repeated password does not match.</p>
             <a href="profile.php?changePass=true" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertCollection'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Collection successfully inserted.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertCollection'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Collection already exists.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertMovement'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Movement successfully inserted.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertMovement'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Movement already exists.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertWatch'] == 'successful') {
+    echo '
+    <div class="message-box" id="success">
+        <div class="message-content">
+            <p class="message">Watch successfully inserted.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
+        </div>
+    </div>';
+} elseif ($_GET['insertWatch'] == 'failed') {
+    echo '
+    <div class="message-box" id="failed">
+        <div class="message-content">
+            <p class="message">Watch already exists.</p>
+            <a href="profile.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
 }
@@ -145,6 +194,115 @@ $profileResult = fetchProfileInformation();
                 </div>';
             }?>
         </div>
+    </section>
+
+    <section class="profile-information-section">
+        <!-- Display the header and body content for employees. -->
+        <?php if ($_SESSION['role_idRole'] == 1) {
+            echo '
+            <div class="profile-information-container">
+            <div class="profile-information-header">';
+                if ($_GET['addCollection'] == 'true') {
+                echo '
+                    <div class="header-title">Insert collection</div>
+                    <div class="header-actions">
+                        <a href="profile.php" id="insert">Watch</a>
+                        <a href="profile.php?addMovement=true" id="insert">Movement</a>
+                    </div>';
+                } elseif ($_GET['addMovement'] == 'true') {
+                    echo '
+                    <div class="header-title">Insert movement</div>
+                    <div class="header-actions">
+                        <a href="profile.php" id="insert">Watch</a>
+                        <a href="profile.php?addCollection=true" id="insert">Collection</a>
+                    </div>';
+                } else {
+                    echo '
+                    <div class="header-title">Insert watch</div>
+                    <div class="header-actions">
+                        <a href="profile.php?addCollection=true" id="insert">Collection</a>
+                        <a href="profile.php?addMovement=true" id="insert">Movement</a>
+                    </div>';
+                }
+            echo '</div>'; // ending the profile-information header div.
+            if ($_GET['addCollection'] == 'true') {
+                // Form for inserting new collections.
+                echo '
+                <form action="../index.php?productFunc=1" method="post">
+                <div class="profile-information-body password">
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Collection *</label><input class="insertInput" type="text" name="collection" required></div>
+                            <div class="input-container"><label class="title">Description *</label><input class="insertInput" type="text" name="description" required></div>
+                            <div class="input-container"><label class="title">Collection image *</label><input class="insertInput" type="text" name="image" required></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-information-footer"><button type="submit" class="insertButton">Add collection</button></div>
+                </form>';
+            } elseif ($_GET['addMovement'] == 'true') {
+                // Form for inserting new movements.
+                echo '
+                <form action="../index.php?productFunc=2" method="post">
+                <div class="profile-information-body">
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Calibre *</label><input class="insertInput" type="text" name="calibre" required></div>
+                            <div class="input-container"><label class="title">Mechanism *</label><input class="insertInput" type="text" name="mechanism" required></div>
+                            <div class="input-container"><label class="title">Amount of Parts *</label><input class="insertInput" type="number" name="parts" required></div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Calibre image *</label><input class="insertInput" type="text" name="image" required></div>
+                            <div class="input-container"><label class="title">Power Reserve *</label><input class="insertInput" type="text" name="power" required></div>
+                            <div class="input-container"><label class="title">Function *</label><input class="insertInput" type="text" name="function" required></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-information-footer"><button type="submit" class="insertButton">Add movement</button></div>
+                </form>';
+            } else {
+                // Form for inserting new watches.
+                echo '
+                <form action="../index.php?productFunc=3" method="post">
+                <div class="profile-information-body">
+                    <div class="body-content">
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">Collection *</label><select class="insertInput" name="collection" required>'; fetchCollection(); echo '</select></div>
+                            <div class="input-container"><label class="title">Model Name *</label><input class="insertInput" type="text" name="model" required></div>
+                        </div>
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Referential number *</label><input class="insertInput" type="text" name="referential" required></div>
+                            <div class="input-container"><label class="title">Movement *</label><select class="insertInput" name="movement" required>'; fetchMovements(); echo '</select></div>
+                            <div class="input-container"><label class="title">Watch image *</label><input class="insertInput" type="text" name="watch" required></div>
+                            <div class="input-container"><label class="title">Price *</label><input class="insertInput" type="text" name="price" required></div>
+                        </div>
+                    </div>
+                    <div class="body-content">
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Case Material *</label><input class="insertInput" type="text" name="material"></div>
+                            <div class="input-container"><label class="title">Case IPX *</label><input class="insertInput" type="text" name="ipx"></div>
+                        </div>
+                        <div class="content-row" id="half">
+                            <div class="input-container"><label class="title">Case Thickness *</label><input class="insertInput" type="text" name="thickness"></div>
+                            <div class="input-container"><label class="title">Case Size *</label><input class="insertInput" type="text" name="size"></div>
+                        </div>
+                        <div class="content-row">
+                            <div class="input-container"><label class="title">Case image</label><input class="insertInput" type="text" name="case" required></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-information-footer"><button type="submit" class="insertButton">Add watch</button></div>
+                </form>';
+            }
+        } else {
+            // Display the headers and content for customers.
+            echo '
+            <div class="profile-information-container">
+            <p>Display customer content</p>';
+        }
+        ?>
     </section>
 </main>
 
