@@ -197,4 +197,48 @@ function fetchCollection() {
     }
     $pdo=null;
 }
+
+function editProduct() {
+    require 'model/config/connect.php';
+    session_start();
+    
+    // Assign the product id taken from the URL.
+    $product = filter_input(INPUT_GET, 'idProduct');
+    $collectionName = $_POST['collection'];
+    $modelName = $_POST['model'];
+    $referentialNum = $_POST['referential'];
+    $movementName = $_POST['movement'];
+    $watchImage = $_POST['watch'];
+    $price = $_POST['price'];
+    $caseMaterial = $_POST['material'];
+    $caseIPX = $_POST['ipx'];
+    $caseThickness = $_POST['thickness'];
+    $caseSize = $_POST['size'];
+    $caseImage = $_POST['case'];
+        
+    // Updating any of the fields, values will be assigned to above variables during execution.
+    $updateProductInformation = 'UPDATE product
+    SET sModelName = :model, sReferential = :ref, sCaseMaterial = :material, sCaseIPX = :ipx, 
+    sCaseThickness = :thickness, sCaseSize = :size, dPrice = :price, sWatchMedia = :watch,
+    sCaseMedia = :case, movement_idMovement = :movement, collection_idCollection = :collection
+    WHERE idProduct =:idProduct';
+        
+    $stmt = $pdo->prepare($updateProductInformation);
+    $stmt->execute([
+        ':idProduct' => $product,
+        ':model' => $modelName,
+        ':ref' => $referentialNum,
+        ':material' => $caseMaterial,
+        ':ipx' => $caseIPX,
+        ':thickness' => $caseThickness,
+        ':size' => $caseSize,
+        ':price' => $price,
+        ':watch' => $watchImage,
+        ':case' => $caseImage,
+        ':movement' => $movementName,
+        ':collection' => $collectionName
+    ]);
+            
+    header("Location: template/product.php?idProduct=$product&editWatch=successful");   
+}
 ?>

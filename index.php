@@ -25,6 +25,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 3:insertWatch();
         break;
+        case 4:editProduct();
+        break;
     }
 }
 

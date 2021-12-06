@@ -79,6 +79,18 @@ main {
                         color: grey;
                         transition: all 0.15s;
                     }
+                    #cancel,
+                    #insert {
+                        margin: 0 0 0 10px;
+                        font: 0.93rem $font-text;
+                        color: lightgray;
+                        border-bottom: 1px solid;
+                    }  
+                    #cancel:hover,
+                    #insert:hover {
+                        color: black;
+                        transition: all 0.15s;
+                    }
                     .price {
                         font: 1.3rem $font-text;
                         color: gray;
@@ -89,7 +101,44 @@ main {
                     }
                 }
             }
-
+            .edit-body {
+                display: grid;
+                padding: 30px 0 10px 0;
+                .body-content {
+                    min-height: 200px;
+                    .content-row {
+                        display: grid;
+                        .title {
+                            font: bold 0.93rem/35px $font-subtext;
+                            letter-spacing: 1px;
+                        }
+                        .value {
+                            padding: 0 0 15px 0;
+                            font: 0.93rem/35px $font-text;
+                            letter-spacing: 1px;
+                        }
+                        .editInput,
+                        .insertInput {
+                            width: 100%;
+                            margin: 5px 0 20px 0;
+                            padding: 10px 0 10px 8px;
+                            font: 0.87rem $font-subtext;
+                            letter-spacing: 1px;
+                            background-color: #f3f3f32f;
+                            color: black;
+                            border: 0.5px solid #ececec;
+                            border-radius: 5px;
+                            outline: none;
+                        }
+                        .editInput:hover {
+                            background-color: #f3f3f36b;
+                            border: 0.5px solid black;
+                            transition: 0.25s;            
+                        }
+                    }
+                }
+            }
+            
             .information-body {
                 .main-carousel {
                     .information-cell {
@@ -226,8 +275,7 @@ main {
                             margin: 0 0 0 10px;
                         }
                     }
-                }
-
+                }  
                 .information-body {
                     .main-carousel {
                         .information-cell {
@@ -315,7 +363,16 @@ main {
                         }
                     }
                 }
-
+                .edit-body {
+                    gap: 25px;
+                    grid-template-columns: repeat(2, 1fr);
+                    .body-content {
+                        #half {
+                            gap: 25px;
+                            grid-template-columns: repeat(2, 1fr);        
+                        }
+                    }
+                }  
                 .information-body {
                     .main-carousel {
                         .information-cell {
