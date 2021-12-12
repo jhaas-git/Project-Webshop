@@ -1,0 +1,213 @@
+@import '../default/var-reset.scss';
+
+main {
+    min-height: 100vh;
+
+    .cart-results-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px 15px 150px 15px;
+        .cart-results-container {
+            width: 100%;
+            padding: 20px 10px;
+            margin: 0 0 20px 0;
+            background-color: #fff;
+            border: 0.5px solid #ececec;
+            border-radius: 8px;
+            .cart-results-grid {
+                display: grid;
+                align-items: center;
+                gap: 0.5rem;
+                grid-auto-columns: 1fr;              
+                grid-template-areas:
+                'productImage productImage'
+                'productName productName'
+                'productRef productRef'
+                'productRemove productRemove'
+                'productPrice productPrice';
+
+                // declare grid areas for placement.
+                .cart-information:nth-child(1) {
+                    grid-area: productImage;
+                } .cart-information:nth-child(2) {
+                    grid-area: productName;
+                } .cart-information:nth-child(3) {
+                    grid-area: productRef;
+                } .cart-information:nth-child(4) {
+                    grid-area: productRemove;
+                } .cart-information:nth-child(5) {
+                      grid-area: productPrice;
+                }      
+                
+                .image, .model, .referential,
+                .remove, .price {
+                    letter-spacing: 0.6px;
+                    text-align: center;
+                } .model, .price {
+                    font: bold 0.93rem $font-text;
+                    letter-spacing: 0.6px;
+                    text-align: center;
+                } .referential, .remove {
+                    font: bold 0.85rem $font-subtext;
+                    letter-spacing: 0.6px;
+                    text-align: center;
+                } img {
+                    width: 110px;
+                }
+            }
+        }
+        .cart-results-container:hover {
+            background-color: #9e9e9e3b;
+            border: 0.5px solid #686868a9;
+            transition: 0.2s;
+        }
+        .cart-actions-container {
+            .cart-actions-grid {
+                display: grid;
+                width: 100%;
+                padding: 10px 10px 0 0;    
+                align-items: center;
+                gap: 20px 0;
+                grid-auto-columns: 1fr;              
+                grid-template-areas:
+                'emptyCart totalCart'
+                'orderCart orderCart';
+
+                // declare grid areas for placement.
+                .cart-action:nth-child(1) {
+                    grid-area: emptyCart;
+                } .cart-action:nth-child(2) {
+                    grid-area: totalCart;
+                } .cart-action:nth-child(3) {
+                    grid-area: orderCart;
+                }
+
+                .empty {
+                    text-align: left;
+                    a {
+                        font: 0.93rem $font-text;
+                        letter-spacing: 0.6px;    
+                        text-decoration: none;
+                        color: grey;
+                    }
+                } .total, .order {
+                    text-align: right;
+                    font: 0.93rem $font-text;
+                    letter-spacing: 0.6px;
+                    .orderButton {
+                        width: 100%;
+                        padding: 8px;
+                        font: 0.93rem $font-text;
+                        letter-spacing: 0.6px;
+                        background-color: black;
+                        color: white;
+                        border: none;
+                        border-radius: 3px;
+                    }
+                    .orderButton:hover {
+                        cursor: pointer;
+                        background-color: grey;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 475px) {
+    main {
+        .cart-results-section {
+            .cart-results-container {
+                width: 100%;
+                padding: 20px 10px;
+                background-color: #fff;
+                border: 0.5px solid #ececec;
+                border-radius: 8px;
+                .cart-results-grid {
+                    grid-template-areas:
+                    'productImage productName'
+                    'productImage productRef'
+                    'productImage productRemove'
+                    'productImage .'
+                    'productImage productPrice';
+
+                    .image {
+                        text-align: left;
+                    } .model, .referential, .remove, .price {
+                        text-align: right;
+                    } .model, .price {
+                        font: bold 0.97rem $font-text;
+                    } .referential, .remove {
+                        font: bold 0.89rem $font-subtext;
+                    } img {
+                        width: 120px;
+                    }    
+                }
+            }
+            .cart-actions-container {
+                .cart-actions-grid {
+                    grid-template-areas:
+                    'emptyCart totalCart'
+                    '. orderCart';
+                    .empty {
+                        font: 0.97rem $font-text;
+                    } .total, .order {
+                        font: 0.97rem $font-text;
+                        .orderButton {
+                            max-width: 125px;
+                            font: 0.97rem $font-text;
+                        }
+                    }
+                }
+            }    
+        }
+    }     
+}
+
+@media (min-width: 768px) {
+    main {
+        .cart-results-section {
+            .cart-results-container {
+                .cart-results-grid {
+                    grid-template-areas:
+                    'productImage productName . productPrice'
+                    'productImage productRef . .'
+                    'productImage productRemove . .'
+                    'productImage . . .';
+
+                    .image {
+                        text-align: center;
+                    } .model, .referential, .remove {
+                        text-align: left;
+                    } .price {
+                        text-align: right;
+                    } .model, .price {
+                        font: bold 1.01rem $font-text;
+                    } .referential, .remove {
+                        font: bold 0.93rem $font-subtext;
+                    } img {
+                        width: 125px;
+                    }    
+                }
+            }
+            .cart-actions-container {
+                .cart-actions-grid {
+                    grid-template-areas:
+                    'emptyCart totalCart'
+                    '. orderCart';
+
+                    .empty {
+                        font: 1.01rem $font-text;
+                    } .total, .order {
+                        font: 1.01rem $font-text;
+                        .orderButton {
+                            max-width: 150px;
+                            font: 1.01rem $font-text;
+                        }
+                    }
+                }
+            }    
+        }
+    }     
+}

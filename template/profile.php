@@ -1,8 +1,7 @@
 <?php
 
+include '../model/config/includes.php';
 include '../model/config/connect.php';
-include '../model/accountFunc.php';
-include '../model/productFunc.php';
 
 session_start();
 if (!isset($_SESSION['signedin'])) {

@@ -1,7 +1,5 @@
 <?php 
-
-include '../model/accountFunc.php';
-
+include '../model/config/includes.php';
 ?>
 
 <!DOCTYPE html>

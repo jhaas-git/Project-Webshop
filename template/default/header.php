@@ -1,3 +1,7 @@
+<?php
+    $amountBag = countBag();
+?>
+
 <header>
     <div class="navigation-mobile" id="menu"></div>
     <div class="navigation-container">
@@ -18,7 +22,7 @@
                 <ul class="navigation-content-right-links">
                     <?php if (isset($_SESSION['signedin'])) {
                         echo '
-                        <li><a href="#" class="bi bi-bag"></a></li>
+                        <li><a href="cart.php" class="bi bi-bag"> '. $amountBag .'</a></li>
                         <li><a href="profile.php" class="bi bi-person-circle"></a></li>
                         <li><a href="../index.php?accountFunc=4" class="bi bi-box-arrow-right"></a></li>';
                     } else {

@@ -96,7 +96,7 @@ function insertMovement() {
 
     // Fetch movements to check if submitted calibre already exists.
     $checkMovement = "SELECT * FROM movement WHERE sCalibre =:calibre";
-    $stmt = $pdo->prepare($checkCollection);
+    $stmt = $pdo->prepare($checkMovement);
     $stmt->execute([
         ':calibre' => $calibreName
     ]);

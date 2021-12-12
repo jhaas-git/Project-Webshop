@@ -28,6 +28,15 @@ if (isset($_GET['accountFunc'])) {
         case 4:editProduct();
         break;
     }
+} elseif (isset($_GET['orderFunc'])) {
+    include 'model/orderFunc.php';
+
+    switch ($_GET['orderFunc']) {
+        case 1:insertBag();
+        break;
+        case 2:deleteProductCart();
+        break;
+    }
 }
 
 ?>

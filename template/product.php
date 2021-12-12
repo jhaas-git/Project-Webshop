@@ -1,5 +1,6 @@
 <?php 
-include '../model/productFunc.php';
+
+include '../model/config/includes.php';
 session_start();
 
 $productResult = fetchWatchInformation();
@@ -139,7 +140,7 @@ $productResult = fetchWatchInformation();
                     </div>
                 </div>
             </div>
-            <div class="information-footer"><form action="#" method="#"><button type="submit" class="bi bi-bag bagButton"> Place in bag</button></form></div>';
+            <div class="information-footer"><a href="../index.php?orderFunc=1&idProduct='. $productResult['idProduct'] .'"><button class="bi bi-bag bagButton"> Place in bag</button></a></div>';
             } ?>
         </div>
         </section>
