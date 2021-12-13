@@ -42,6 +42,7 @@ function countBag() {
 // Display the items inside the users' cart.
 function showCart() {
     require 'config/connect.php';
+
     session_start();
 
     // Fetch all products inside a cart from the signed in user.
@@ -59,6 +60,8 @@ function showCart() {
     // If any results exist, display the items on cart.php
     if ($stmt->rowCount() > 0) {
         $cartItem = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Runs a query to show the signed in users' total price.
+        $totalPrice = displayTotal();
 
         foreach ($cartItem as $item) {
             echo '
@@ -76,7 +79,7 @@ function showCart() {
         <div class="cart-actions-container">
             <div class="cart-actions-grid">
                 <div class="cart-action empty"><a href="../index.php?orderFunc=2&delete=multi">empty cart</a></div>
-                <div class="cart-action total">Total: € echo total..</div>
+                <div class="cart-action total">Total: € '. $totalPrice .'</div>
                 <div class="cart-action order"><button class="orderButton">Place order</button></div>
             </div>
         </div>';
@@ -118,5 +121,27 @@ function deleteProductCart() {
 
         header("location: template/cart.php");
     }
+}
+
+// Display the total price from the users' cart.
+// Function will be used inside showCart().
+function displayTotal() {
+    require 'config/connect.php';
+    session_start();
+
+    $fetchTotal = 'SELECT SUM(product.dPrice) 
+    AS totalPrice
+    FROM cart
+    INNER JOIN product
+    ON cart.product_idProduct = product.idProduct
+    WHERE cart.account_idAccount =:user';
+    $stmt = $pdo->prepare($fetchTotal);
+
+    $stmt->execute([
+        ':user' => $_SESSION['idAccount']
+    ]);
+
+    $totalPrice = $stmt->fetchColumn();
+    return $totalPrice; // Echo total on cart.php.
 }
 ?>

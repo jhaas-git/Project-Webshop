@@ -4,7 +4,7 @@ function fetchProducts(){
 
     // Get watch information and order them by collection.
     // Ordering by collection makes it easier to search.
-    $selectProducts = $pdo->query('SELECT idProduct, sModelName, dPrice, sWatchMedia FROM product ORDER BY product.collection_idCollection ASC;');
+    $selectProducts = $pdo->query('SELECT idProduct, sModelName, dPrice, sWatchMedia FROM product ORDER BY sModelName ASC;');
 
     foreach ($selectProducts as $productInfo) {
         echo ' 
