@@ -241,4 +241,56 @@ function editProduct() {
             
     header("Location: template/product.php?idProduct=$product&editWatch=successful");   
 }
+
+function fetchCollectionFilter() {
+    require '../model/config/connect.php';
+
+    $selectFilterOption = 'SELECT DISTINCT(sCollection) FROM product
+    INNER JOIN collection
+    ON product.collection_idCollection = collection.idCollection';
+    $stmt = $pdo->prepare($selectFilterOption);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach ($result as $filterValue) {
+        echo '<li><label><input type="checkbox" class="collection" value="'. $filterValue['sCollection'] .'" > '. $filterValue['sCollection'] .'</label></li>';
+    }
+}
+
+function fetchCalibreFilter() {
+    require '../model/config/connect.php';
+
+    $selectFilterOption = 'SELECT DISTINCT(sCalibre) FROM product
+    INNER JOIN movement
+    ON product.movement_idMovement = movement.idMovement';
+    $stmt = $pdo->prepare($selectFilterOption);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach ($result as $filterValue) {
+        echo '<li><label><input type="checkbox" class="calibre" value="'. $filterValue['sCalibre'] .'" > '. $filterValue['sCalibre'] .'</label></li>';
+    }
+}
+
+function fetchMaterialFilter() {
+    require '../model/config/connect.php';
+
+    $selectFilterOption = 'SELECT DISTINCT(sCaseMaterial) FROM product';
+    $stmt = $pdo->prepare($selectFilterOption);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach ($result as $filterValue) {
+        echo '<li><label><input type="checkbox" class="material" value="'. $filterValue['sCaseMaterial'] .'" > '. $filterValue['sCaseMaterial'] .'</label></li>';
+    }
+}
+
+function fetchSizeFilter() {
+    require '../model/config/connect.php';
+
+    $selectFilterOption = 'SELECT DISTINCT(sCaseSize) FROM product';
+    $stmt = $pdo->prepare($selectFilterOption);
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach ($result as $filterValue) {
+        echo '<li><label><input type="checkbox" class="size" value="'. $filterValue['sCaseSize'] .'" > '. $filterValue['sCaseSize'] .'</label></li>';
+    }
+}
 ?>

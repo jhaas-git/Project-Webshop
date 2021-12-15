@@ -25,6 +25,44 @@ session_start();
 
 <main>
 
+<section class="filter-results-section">
+    <div class="filter-results-container">
+        <button class="filter"><p class="bi bi-funnel"> Filter</p><span class="bi bi-plus-lg"></span></button>
+        <div class="panel">
+            <form action="#" method="post">
+            <div class="filter-content">
+                <div class="filter-content-grid">
+                    <div class="filter-subject">
+                        <div class="subject-header"><p class="subject">Collection</p></div>
+                        <div class="subject-content">
+                            <ul> <?php fetchCollectionFilter() ?></ul>
+                        </div>
+                    </div>                    
+                    <div class="filter-subject">
+                        <div class="subject-header"><p class="subject">Calibre</p></div>
+                        <div class="subject-content">
+                            <ul> <?php fetchCalibreFilter() ?></ul>
+                        </div>
+                    </div>                    
+                    <div class="filter-subject">
+                        <div class="subject-header"><p class="subject">Material</p></div>
+                        <div class="subject-content">
+                            <ul> <?php fetchMaterialFilter() ?></ul>
+                        </div>
+                    </div>                    
+                    <div class="filter-subject">
+                        <div class="subject-header"><p class="subject">Case size</p></div>
+                        <div class="subject-content">
+                            <ul> <?php fetchSizeFilter() ?></ul>
+                        </div>
+                    </div>                         
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
+
 <section class="watch-results-section">
     <div class="watch-results-container">
         <?php
@@ -38,6 +76,7 @@ session_start();
 <?php include 'default/footer.php'; ?>
 
 <script src="../javascript/default.js"></script>
+<script src="../javascript/filter.js"></script>
 
 </body>
 </html>
