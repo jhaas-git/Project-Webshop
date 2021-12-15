@@ -1,29 +1,4 @@
 <?php
-function fetchProducts(){
-    require 'config/connect.php';
-
-    // Get watch information and order them by collection.
-    // Ordering by collection makes it easier to search.
-    $selectProducts = $pdo->query('SELECT idProduct, sModelName, dPrice, sWatchMedia FROM product ORDER BY sModelName ASC;');
-
-    foreach ($selectProducts as $productInfo) {
-        echo ' 
-        <div class="product-display">
-        <a href="product.php?idProduct='. $productInfo['idProduct'] .'">
-            <div class="product-image">
-            <img src="'. $productInfo["sWatchMedia"] .'"></div>
-            <div class="product-values">
-                <ul>
-                    <li id="model-name">'. $productInfo["sModelName"] .'</li>
-                    <li id="model-price">€ '. $productInfo["dPrice"] .'</li>
-                </ul>
-            </div>
-        </a>
-        </div>';
-    }
-    $pdo=null;
-}
-
 function fetchWatchInformation(){
     require 'config/connect.php';
 
@@ -245,28 +220,28 @@ function editProduct() {
 function fetchCollectionFilter() {
     require '../model/config/connect.php';
 
-    $selectFilterOption = 'SELECT DISTINCT(sCollection) FROM product
-    INNER JOIN collection
-    ON product.collection_idCollection = collection.idCollection';
+    $selectFilterOption = 'SELECT DISTINCT(collection_idCollection), sCollection FROM product
+    JOIN collection
+    ON collection_idCollection = idCollection';
     $stmt = $pdo->prepare($selectFilterOption);
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="collection" value="'. $filterValue['sCollection'] .'" > '. $filterValue['sCollection'] .'</label></li>';
+        echo '<li><label><input type="checkbox" class="common_selector collection" value="'. $filterValue['collection_idCollection'] .'" > '. $filterValue['sCollection'] .'</label></li>';
     }
 }
 
 function fetchCalibreFilter() {
     require '../model/config/connect.php';
 
-    $selectFilterOption = 'SELECT DISTINCT(sCalibre) FROM product
+    $selectFilterOption = 'SELECT DISTINCT(movement_idMovement), sCalibre FROM product
     INNER JOIN movement
     ON product.movement_idMovement = movement.idMovement';
     $stmt = $pdo->prepare($selectFilterOption);
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="calibre" value="'. $filterValue['sCalibre'] .'" > '. $filterValue['sCalibre'] .'</label></li>';
+        echo '<li><label><input type="checkbox" class="common_selector calibre" value="'. $filterValue['movement_idMovement'] .'" > '. $filterValue['sCalibre'] .'</label></li>';
     }
 }
 
@@ -278,7 +253,7 @@ function fetchMaterialFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="material" value="'. $filterValue['sCaseMaterial'] .'" > '. $filterValue['sCaseMaterial'] .'</label></li>';
+        echo '<li><label><input type="checkbox" class="common_selector material" value="'. $filterValue['sCaseMaterial'] .'" > '. $filterValue['sCaseMaterial'] .'</label></li>';
     }
 }
 
@@ -290,7 +265,69 @@ function fetchSizeFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="size" value="'. $filterValue['sCaseSize'] .'" > '. $filterValue['sCaseSize'] .'</label></li>';
+        echo '<li><label><input type="checkbox" class="common_selector size" value="'. $filterValue['sCaseSize'] .'" > '. $filterValue['sCaseSize'] .'</label></li>';
+    }
+}
+
+function displayProducts() {
+    include('config/connect.php');
+
+    if(isset($_POST['action'])){
+        // Select to fetch all watches
+        $fetchProducts = 'SELECT * FROM product 
+        INNER JOIN collection
+        ON collection_idCollection = idCollection
+        INNER JOIN movement
+        ON movement_idMovement = idMovement
+        WHERE idProduct > 0';
+    
+        if(isset($_POST['collection'])){
+            $collection_filter = implode('","', $_POST['collection']);
+            $fetchProducts .= '
+            AND collection_idCollection IN("'.$collection_filter.'")';
+        }
+        if(isset($_POST['calibre'])){
+            $calibre_filter = implode('","', $_POST['calibre']);
+            $fetchProducts .= '
+            AND movement_idMovement IN("'.$calibre_filter.'")';
+        }
+        if(isset($_POST['material'])){
+            $material_filter = implode('","', $_POST['material']);
+            $fetchProducts .= ' 
+            AND sCaseMaterial IN("'.$material_filter.'")';
+        }
+        if(isset($_POST['size'])){
+            $size_filter = implode('","', $_POST['size']);
+            $fetchProducts .= ' 
+            AND sCaseSize IN("'.$size_filter.'")';
+        }
+
+        $statement = $pdo->prepare($fetchProducts);
+        $statement->execute();
+        $result = $statement->fetchAll();
+        $total_products = $statement->rowCount();
+        $products = ''; // will be filled with (if statement below) either the results or echo that no products are found.
+
+        if ($total_products > 0) {
+            foreach ($result as $row) {
+                $products .= '
+                <div class="product-display">
+                <a href="product.php?idProduct='. $row['idProduct'] .'">
+                    <div class="product-image">
+                    <img src="'. $row["sWatchMedia"] .'"></div>
+                    <div class="product-values">
+                        <ul>
+                            <li id="model-name">'. $row["sModelName"] .'</li>
+                            <li id="model-price">€ '. $row["dPrice"] .'</li>
+                        </ul>
+                    </div>
+                </a>
+                </div>';
+            }
+        } else {
+            $products = '<p class="noResult">No products found.</p>';
+        }
+        echo $products;    
     }
 }
 ?>

@@ -27,6 +27,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 4:editProduct();
         break;
+        case 5:displayProducts();
+        break;
     }
 } elseif (isset($_GET['orderFunc'])) {
     include 'model/orderFunc.php';
