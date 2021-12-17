@@ -36,27 +36,35 @@ session_start();
                     <div class="filter-subject">
                         <div class="subject-header"><p class="subject">Collection</p></div>
                         <div class="subject-content">
-                            <ul> <?php fetchCollectionFilter() ?></ul>
+                            <ul>
+                                <?php fetchCollectionFilter() ?>
+                            </ul>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="filter-subject">
                         <div class="subject-header"><p class="subject">Calibre</p></div>
                         <div class="subject-content">
-                            <ul> <?php fetchCalibreFilter() ?></ul>
+                            <ul>
+                                <?php fetchCalibreFilter() ?>
+                            </ul>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="filter-subject">
                         <div class="subject-header"><p class="subject">Material</p></div>
                         <div class="subject-content">
-                            <ul> <?php fetchMaterialFilter() ?></ul>
+                            <ul>
+                                <?php fetchMaterialFilter() ?>
+                            </ul>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="filter-subject">
-                        <div class="subject-header"><p class="subject">Case size</p></div>
+                        <div class="subject-header"><p class="subject">Size</p></div>
                         <div class="subject-content">
-                            <ul> <?php fetchSizeFilter() ?></ul>
+                            <ul>
+                                <?php fetchSizeFilter() ?>
+                            </ul>
                         </div>
-                    </div>                         
+                    </div>
                 </div>
             </div>
             </form>

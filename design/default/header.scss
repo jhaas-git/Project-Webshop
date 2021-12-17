@@ -7,13 +7,12 @@
 header {
     width: 100%;
     height: 80px;
-    background-color: #fff;
-    border-bottom: 1px solid #ececec;
+    background-color: $color-brand;
 
     .navigation-mobile  {
         display: flex;
         justify-content: center;
-        background-color: #fff;
+        background-color: $color-white;
     }
     #menu {
         visibility: hidden;
@@ -58,15 +57,15 @@ header {
                     padding: 0 10px 0 0;
                     font: 0.97rem $font-text;
                     letter-spacing: 1.5px;
-                    color: black;    
+                    color: $color-white;    
                 }
                 .bi {
                     padding: 0 0 0 10px;
                     font-size: 1.18rem;
-                    color: black;    
+                    color: $color-white;    
                 }
                 .links:hover, .bi:hover {
-                    color: grey;
+                    color: $color-accent;
                     transition: all 0.15s;
                 }
             }
@@ -81,7 +80,7 @@ header {
             #mobile-menu span,
             #mobile-menu span:before,
             #mobile-menu span:after {
-                background: black;
+                background: $color-white;
                 display: block;
                 height: 1px;
                 opacity: 1;

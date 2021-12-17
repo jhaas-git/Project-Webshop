@@ -7,12 +7,12 @@ main {
     .filter-results-section {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 50px 15px;
+        padding: 50px 15px 0 15px;
 
         .filter-results-container {
             max-width: 1280px;
             margin: 0 auto;
-
+            
             .filter {
                 display: flex;
                 width: 100%;
@@ -25,81 +25,113 @@ main {
                 border: 1px solid #ececec;
                 outline: none;
                 cursor: pointer;
+                transition: all 0.25s;
 
                 span {
                     transition: 0.25s;
                     transform: rotate(0deg);
-                }
-            }
+                }    
+            } .active {
+                background-color: #d8b69670;
+                color: $color-text;
+                border: 1px solid $color-accent;
 
-            .active {
-                background-color: black;
-                color: white;
-                border: 1px solid black;
-                transition: 0.4s;
                 span {
                     transition: 0.25s;
                     transform: rotate(45deg);
                 }
             }
-            
+
             .panel {
                 max-height: 0;
                 overflow: hidden;
-                border-left: 1px solid #ececec;
-                border-right: 1px solid #ececec;
-                border-bottom: 1px solid #ececec;
-                transition: max-height 0.2s ease-out;
-
+                border-left: 1px solid $color-border;
+                border-right: 1px solid $color-border;
+                border-bottom: 1px solid $color-border;
+                border-radius: 0 0 5px 5px;
+                transition: max-height 0.25s ease-out;
+                
                 .filter-content {
                     padding: 0 0 15px 0;
                     max-height: 200px;
                     overflow-y: scroll;
-
-                    .filter-content-grid {
+                    
+                    .filter-content-grid{
                         display: grid;
                         gap: 0;
                         grid-template-columns: repeat(1, 1fr); 
                         
                         .filter-subject {
                             width: 100%;
-                            font: 0.93rem $font-text;
+                            font: 1rem $font-subtext;
                             letter-spacing: 1px;   
-                            color: black;
+                            color: $color-brand;  
+                            
                             .subject-header {
                                 width: 100%;
                                 padding: 0 0 0 10px;
-                                background-color: #ececec;
+                                background-color: $color-border;
                                 .subject {
                                     padding: 15px 0 15px 0;
                                     font-weight: bold;
                                 }
                             }
                             .subject-content {
-                                padding: 10px 0 25px 15px;
+                                padding: 25px 15px 25px 15px;
                                 ul {
                                     list-style: none;
-                                    li {
-                                        line-height: 25px;
-                                        accent-color: black;
-                                    }
-                                    li:hover {
-                                        color: lightgray;
-                                        transition: all 0.1s;
+                                    display: grid;
+                                    gap: 10px;
+                                    grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );                                   
+                                    grid-auto-rows: auto; 
+
+                                    .checkbox-grid {
+                                        .checkbox {
+                                            width: 100%;
+                                            min-height: 40px;
+                                            position: relative;
+
+                                            input {
+                                                position: absolute;
+                                                width: 100%;
+                                                height: 100%;
+                                                z-index: 2;
+                                                appearance: none;
+                                                cursor: pointer;
+                                            } .box {
+                                                display: flex;
+                                                position: absolute;
+                                                width: 100%;
+                                                height: 100%;
+                                                justify-content: center;
+                                                align-items: center;
+                                                overflow: hidden;
+                                                font: 0.97rem $font-text;
+                                                background-color: white;
+                                                border: 1px solid #ececec;
+                                                border-radius: 5px;
+                                                z-index: 1;
+                                                transition: all 0.4s;
+                                            } input:checked ~ .box {
+                                                background: #d8b69670;
+                                                border: 1px solid $color-accent;
+                                                color: black;
+                                            }
+                                        }    
                                     }
                                 }
                             }
                         }
                     }
                 }
-            } 
+            }
         }
     }
 
     .watch-results-section {
         max-width: 1280px;
         margin: 0 auto;
-        padding: 0 15px 150px 15px;
+        padding: 50px 15px 50px 15px;
         .watch-results-container {
             display: grid;
             gap: 2rem 0;
@@ -110,11 +142,13 @@ main {
                 background-color: #f1f1f134;
                 border: 1px solid #f3f3f3;
                 border-radius: 5px;
+                transition: all 0.4s;
                 .product-image {
                     width: 100%;
                     padding: 25px 0 0 0;
                     img {
                         width: 130px;
+                        transition: all .4s ease-in-out;
                     }
                 }
                 .product-values {
@@ -139,30 +173,18 @@ main {
             .product-display:hover {
                 background-color: #e0bc8c73;
                 border: 1px solid #e0bc8c73;
-                transition: 0.2s;
+                .product-image {
+                    img {
+                        transform: scale(1.07);
+                    }
+                }
             }
         }
     }
 }
 
 @media (min-width: 550px) {
-    main {
-        .filter-results-section {
-            .filter-results-container {
-                .panel {
-                    .filter-content {
-                        .filter-content-grid {
-                            display: grid;
-                            grid-template-columns: repeat(2, 1fr);
-                            .filter-subject {
-                                font: 0.97rem $font-text;
-                            }                    
-                        }
-                    }
-                } 
-            }
-        }
-    
+    main {    
         .watch-results-section {
             .watch-results-container {
                 gap: 2rem 2rem;
@@ -181,22 +203,6 @@ main {
 
 @media (min-width: 850px) {
     main {
-        .filter-results-section {
-            .filter-results-container {
-                .panel {
-                    .filter-content {
-                        .filter-content-grid {
-                            display: grid;
-                            grid-template-columns: repeat(3, 1fr);    
-                            .filter-subject {
-                                font: 1.03rem $font-text;
-                            }        
-                        }
-                    }
-                } 
-            }
-        }
-
         .watch-results-section {
             .watch-results-container {
                 gap: 2rem 2rem;
@@ -225,17 +231,11 @@ main {
 
 @media (min-width: 1100px) {
     main {
-        .filter-results-section {
-            .filter-results-container {
-                .panel {
-                    .filter-content {
-                        .filter-content-grid {
-                            display: grid;
-                            grid-template-columns: repeat(4, 1fr);             
-                        }
-                    }
-                } 
-            }
+        .watch-results-section {
+            .watch-results-container {
+                gap: 2rem 2rem;
+                grid-template-columns: repeat(4, 1fr); 
+            }    
         }
     }    
 }

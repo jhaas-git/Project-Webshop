@@ -74,12 +74,21 @@ body {
 }
 
 main {
-  height: 100vh;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 main .account-section {
   width: 100%;
-  padding: 100px 15px;
+  padding: 50px 15px;
 }
 
 main .account-section .account-form-container {
@@ -127,19 +136,19 @@ main .account-section .account-form-container .account-form-body .form-row .inpu
   font: 0.91rem "Roboto", sans-serif;
   letter-spacing: 1px;
   background-color: #f3f3f32f;
-  color: black;
-  border: 0.5px solid #ececec;
+  color: #141414;
+  border: 1px solid #ececec;
   border-radius: 5px;
   outline: none;
   background-repeat: no-repeat;
   background-position: 5px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 main .account-section .account-form-container .account-form-body .form-row .input-container input:hover,
 main .account-section .account-form-container .account-form-body .form-row .input-container input:focus {
-  border: 0.5px solid black;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+  border: 1px solid #c5a282;
 }
 
 main .account-section .account-form-container .account-form-body .form-row .input-container #lname {
@@ -164,17 +173,17 @@ main .account-section .account-form-container .account-form-body .registerBtn {
   padding: 8px 0;
   font: 0.87rem "Roboto", sans-serif;
   letter-spacing: 1px;
-  background-color: black;
+  background-color: #03061b;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 main .account-section .account-form-container .account-form-body .registerBtn:hover {
-  background-color: grey;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+  background-color: #c5a282;
 }
 
 main .account-section .account-form-container .account-form-body .tablink {

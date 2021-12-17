@@ -102,16 +102,16 @@ main {
                     padding: 8px 10px;
                     font: 0.87rem $font-subtext;
                     letter-spacing: 1px;
-                    background-color: black;
+                    background-color: $color-brand;
                     color: #fff;
                     border: none;
                     border-radius: 3px;
                     cursor: pointer;
+                    transition: all .2s ease-in-out;
                 }
                 .updateButton:hover,
                 .insertButton:hover {
-                    background-color: grey;
-                    transition: 0.25s;            
+                    background-color: $color-accent;
                 } 
             }
         }

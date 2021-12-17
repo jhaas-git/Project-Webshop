@@ -45,20 +45,22 @@ footer .footer-container .footer-column ul li img {
 }
 
 footer .footer-container .footer-column ul li .title {
-  font: 0.93rem/35px "Urbanist", sans-serif;
+  font: bold 0.93rem/35px "Urbanist", sans-serif;
   letter-spacing: 1px;
+  color: #c5a282;
 }
 
 footer .footer-container .footer-column ul li .link {
-  font: 0.93rem/25px "Roboto", sans-serif;
+  font: bold 0.93rem/25px "Roboto", sans-serif;
   letter-spacing: 1px;
-  color: black;
+  color: #68686898;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 
 footer .footer-container .footer-column ul li .link:hover {
-  color: grey;
-  -webkit-transition: all 0.15s;
-  transition: all 0.15s;
+  color: #03061b;
+  text-decoration: underline;
 }
 
 footer .footer-container .footer-column .desktop {
@@ -83,10 +85,10 @@ footer .footer-container .footer-column .desktop {
     height: 30px;
   }
   footer .footer-container .footer-column ul li .title {
-    font: 0.97rem/35px "Urbanist", sans-serif;
+    font: bold 0.97rem/35px "Urbanist", sans-serif;
   }
   footer .footer-container .footer-column ul li .link {
-    font: 0.97rem/25px "Roboto", sans-serif;
+    font: bold 0.97rem/25px "Roboto", sans-serif;
   }
   footer .footer-container .footer-column .mobile {
     display: none;
@@ -105,10 +107,10 @@ footer .footer-container .footer-column .desktop {
     height: 33px;
   }
   footer .footer-container .footer-column ul li .title {
-    font: 1rem/35px "Urbanist", sans-serif;
+    font: bold 1rem/35px "Urbanist", sans-serif;
   }
   footer .footer-container .footer-column ul li .link {
-    font: 1rem/25px "Roboto", sans-serif;
+    font: bold 1rem/25px "Roboto", sans-serif;
   }
 }
 /*# sourceMappingURL=footer.css.map */

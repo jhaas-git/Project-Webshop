@@ -16,8 +16,8 @@
                     <li><a href="watches.php" class="links">watches</a></li>
                 </ul>
             </div>
-            <div class="navigation-content-center mobile"><a href="#"><img src="../media/brand/logo-black-sm.svg" alt=""></a></div>
-            <div class="navigation-content-center desktop"><a href="#"><img src="../media/brand/logo-black-lg.svg" alt=""></a></div>
+            <div class="navigation-content-center mobile"><a href="#"><img src="../media/brand/logo-white-sm.svg" alt=""></a></div>
+            <div class="navigation-content-center desktop"><a href="#"><img src="../media/brand/logo-white-lg.svg" alt=""></a></div>
             <div class="navigation-content-right">
                 <ul class="navigation-content-right-links">
                     <?php if (isset($_SESSION['signedin'])) {

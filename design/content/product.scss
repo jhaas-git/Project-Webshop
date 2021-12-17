@@ -4,8 +4,8 @@ main {
     min-height: 100vh;
     .collection-section {
         width: 100%;
-        background-color: #fff;
-        border-bottom: 1px solid #ececec;
+        background-color: $color-brand;
+        border-bottom: 1px solid $color-brand;
         border-radius: 0 0 0 25px;
         .collection-container {
             display: flex;
@@ -20,15 +20,16 @@ main {
                 .title {
                     overflow: hidden;
                     font: 2.6rem/50px $font-subtext;
+                    color: $color-white;
                 }
                 .collection {
                     font: 2.6rem/50px $font-title;
                     text-transform: uppercase;
-                    color: grey;
+                    color: $color-accent;
                 }
             }
             .collection-container-right {
-                display: none;
+                display: none; 
                 width: 100%;
             }
 
@@ -46,8 +47,8 @@ main {
             max-width: 1280px;
             margin: 0 auto;
             padding: 20px 15px 20px 15px;
-            background-color: white;
-            border: 1px solid #ececec;
+            background-color: $color-white;
+            border: 1px solid $color-border;
             border-radius: 10px;
 
             .information-header {
@@ -59,11 +60,12 @@ main {
                     text-transform: uppercase;    
                     .model {
                         font: 1.7rem/35px $font-title;
+                        color: $color-accent;
                     }
 
                     .ref {
                         font: 0.87rem/35px $font-subtext;
-                        color: grey;
+                        color: $color-text-shade
                     }
                 }
                 .information-header-right {
@@ -72,31 +74,31 @@ main {
                     .deleteButton {
                         margin: 0 10px;
                         font-size: 1.07rem;
-                        color: black;
+                        color: $color-brand;
                     }
                     .editButton:hover,
                     .deleteButton:hover {
-                        color: grey;
+                        color: $color-accent;
                         transition: all 0.15s;
                     }
                     #cancel,
                     #insert {
                         margin: 0 0 0 10px;
                         font: 0.93rem $font-text;
-                        color: lightgray;
+                        color: $color-brand;
                         border-bottom: 1px solid;
                     }  
                     #cancel:hover,
                     #insert:hover {
-                        color: black;
+                        color: $color-accent;
                         transition: all 0.15s;
                     }
                     .price {
                         font: 1.3rem $font-text;
-                        color: gray;
+                        color: $color-text;
 
                         span {
-                            color: black;
+                            color: $color-text;
                         }
                     }
                 }
@@ -124,15 +126,15 @@ main {
                             padding: 10px 0 10px 8px;
                             font: 0.87rem $font-subtext;
                             letter-spacing: 1px;
-                            background-color: #f3f3f32f;
-                            color: black;
-                            border: 0.5px solid #ececec;
+                            opacity: 0.67;
+                            background-color: $color-input;
+                            border: 0.5px solid $color-border;
                             border-radius: 5px;
                             outline: none;
                         }
-                        .editInput:hover {
-                            background-color: #f3f3f36b;
-                            border: 0.5px solid black;
+                        .editInput:hover, .editInput:focus {
+                            opacity: 1;
+                            border: 0.5px solid $color-text;
                             transition: 0.25s;            
                         }
                     }
@@ -173,12 +175,13 @@ main {
                                     margin-bottom: 5px;
                                     font: 1.13rem $font-title;
                                     letter-spacing: 1px;
+                                    color: $color-accent;
                                 }
                                 .spec-value {
                                     margin-bottom: 20px;
-                                    font: 1.03rem $font-subtext;
+                                    font: 1.03rem $font-text;
                                     letter-spacing: 0.5px;
-                                    color: grey;
+                                    color: $color-text-shade;
                                 }
                             }
                         }
@@ -205,16 +208,16 @@ main {
                     padding: 8px;
                     font: 0.93rem $font-text;
                     letter-spacing: 1.5px;
-                    background-color: black;
-                    color: white;
+                    background-color: $color-brand;
+                    color: $color-white;
                     border: none;
                     border-radius: 5px;
+                    transition: all 0.25s;
                 }
 
                 .bagButton:hover {
-                    background-color: grey;
+                    background-color: $color-accent;
                     cursor: pointer;
-                    transition: all 0.15s;
                 }
             }
         }

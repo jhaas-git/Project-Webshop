@@ -3,8 +3,8 @@
 footer {
     width: 100%;
     padding: 40px 0;
-    background-color: #fff;
-    border-top: 1px solid #ececec;
+    background-color: $color-white;
+    border-top: 1px solid $color-border;
 
     .footer-container {
         display: grid;
@@ -22,17 +22,19 @@ footer {
                         height: 25px;
                     }
                     .title {
-                        font: 0.93rem/35px $font-text;
+                        font: bold 0.93rem/35px $font-text;
                         letter-spacing: 1px;
+                        color: $color-accent;
                     }
                     .link {
-                        font: 0.93rem/25px $font-subtext;
+                        font: bold 0.93rem/25px $font-subtext;
                         letter-spacing: 1px;
-                        color: black;
+                        color: $color-text-shade;
+                        transition: all 0.4s;
                     }
                     .link:hover {
-                        color: grey;
-                        transition: all 0.15s;
+                        color: $color-brand;
+                        text-decoration: underline;
                     }
                 }
             }
@@ -58,10 +60,10 @@ footer {
                             height: 30px;
                         }
                         .title {
-                            font: 0.97rem/35px $font-text;
+                            font: bold 0.97rem/35px $font-text;
                         }
                         .link {
-                            font: 0.97rem/25px $font-subtext;
+                            font: bold 0.97rem/25px $font-subtext;
                         }
                     }
                 }    
@@ -87,10 +89,10 @@ footer {
                             height: 33px;
                         }
                         .title {
-                            font: 1rem/35px $font-text;
+                            font: bold 1rem/35px $font-text;
                         }
                         .link {
-                            font: 1rem/25px $font-subtext;
+                            font: bold 1rem/25px $font-subtext;
                         }
                     }    
                 }

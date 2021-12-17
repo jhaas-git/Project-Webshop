@@ -79,7 +79,7 @@ function showCart() {
         <div class="cart-actions-container">
             <div class="cart-actions-grid">
                 <div class="cart-action empty"><a href="../index.php?orderFunc=2&delete=multi">empty cart</a></div>
-                <div class="cart-action total">Total: € '. $totalPrice .'</div>
+                <div class="cart-action total">Total: <span>€ '. $totalPrice .'</span></div>
                 <div class="cart-action order"><button class="orderButton">Place order</button></div>
             </div>
         </div>';

@@ -227,7 +227,10 @@ function fetchCollectionFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="common_selector collection" value="'. $filterValue['collection_idCollection'] .'" > '. $filterValue['sCollection'] .'</label></li>';
+        echo '<li class="checkbox-grid"><div class="checkbox">
+        <input type="checkbox" class="common_selector collection" value="'. $filterValue['collection_idCollection'] .'">
+        <div class="box"><p>'. $filterValue['sCollection'] .'</p></div>
+        </div></li>';
     }
 }
 
@@ -241,7 +244,10 @@ function fetchCalibreFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="common_selector calibre" value="'. $filterValue['movement_idMovement'] .'" > '. $filterValue['sCalibre'] .'</label></li>';
+        echo '<li class="checkbox-grid"><div class="checkbox">
+        <input type="checkbox" class="common_selector calibre" value="'. $filterValue['movement_idMovement'] .'">
+        <div class="box"><p>'. $filterValue['sCalibre'] .'</p></div>
+        </div></li>';
     }
 }
 
@@ -253,7 +259,10 @@ function fetchMaterialFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="common_selector material" value="'. $filterValue['sCaseMaterial'] .'" > '. $filterValue['sCaseMaterial'] .'</label></li>';
+        echo '<li class="checkbox-grid"><div class="checkbox">
+        <input type="checkbox" class="common_selector material" value="'. $filterValue['sCaseMaterial'] .'">
+        <div class="box"><p>'. $filterValue['sCaseMaterial'] .'</p></div>
+        </div></li>';
     }
 }
 
@@ -265,7 +274,11 @@ function fetchSizeFilter() {
     $stmt->execute();
     $result = $stmt->fetchAll();
     foreach ($result as $filterValue) {
-        echo '<li><label><input type="checkbox" class="common_selector size" value="'. $filterValue['sCaseSize'] .'" > '. $filterValue['sCaseSize'] .'</label></li>';
+        echo '
+        <li class="checkbox-grid"><div class="checkbox">
+        <input type="checkbox" class="common_selector size" value="'. $filterValue['sCaseSize'] .'">
+        <div class="box"><p>'. $filterValue['sCaseSize'] .'</p></div>
+        </div></li>';
     }
 }
 
@@ -283,23 +296,19 @@ function displayProducts() {
     
         if(isset($_POST['collection'])){
             $collection_filter = implode('","', $_POST['collection']);
-            $fetchProducts .= '
-            AND collection_idCollection IN("'.$collection_filter.'")';
+            $fetchProducts .= ' AND collection_idCollection IN("'.$collection_filter.'")';
         }
         if(isset($_POST['calibre'])){
             $calibre_filter = implode('","', $_POST['calibre']);
-            $fetchProducts .= '
-            AND movement_idMovement IN("'.$calibre_filter.'")';
+            $fetchProducts .= ' AND movement_idMovement IN("'.$calibre_filter.'")';
         }
         if(isset($_POST['material'])){
             $material_filter = implode('","', $_POST['material']);
-            $fetchProducts .= ' 
-            AND sCaseMaterial IN("'.$material_filter.'")';
+            $fetchProducts .= ' AND sCaseMaterial IN("'.$material_filter.'")';
         }
         if(isset($_POST['size'])){
             $size_filter = implode('","', $_POST['size']);
-            $fetchProducts .= ' 
-            AND sCaseSize IN("'.$size_filter.'")';
+            $fetchProducts .= ' AND sCaseSize IN("'.$size_filter.'")';
         }
 
         $statement = $pdo->prepare($fetchProducts);

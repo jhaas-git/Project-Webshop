@@ -21,8 +21,8 @@ main {
 
 main .collection-section {
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid #ececec;
+  background-color: #03061b;
+  border-bottom: 1px solid #03061b;
   border-radius: 0 0 0 25px;
 }
 
@@ -49,12 +49,13 @@ main .collection-section .collection-container .collection-container-left {
 main .collection-section .collection-container .collection-container-left .title {
   overflow: hidden;
   font: 2.6rem/50px "Roboto", sans-serif;
+  color: #fff;
 }
 
 main .collection-section .collection-container .collection-container-left .collection {
   font: 2.6rem/50px "Italiana", serif;
   text-transform: uppercase;
-  color: grey;
+  color: #c5a282;
 }
 
 main .collection-section .collection-container .collection-container-right {
@@ -77,7 +78,7 @@ main .information-section .information-container {
   max-width: 1280px;
   margin: 0 auto;
   padding: 20px 15px 20px 15px;
-  background-color: white;
+  background-color: #fff;
   border: 1px solid #ececec;
   border-radius: 10px;
 }
@@ -95,11 +96,12 @@ main .information-section .information-container .information-header .informatio
 
 main .information-section .information-container .information-header .information-header-left .model {
   font: 1.7rem/35px "Italiana", serif;
+  color: #c5a282;
 }
 
 main .information-section .information-container .information-header .information-header-left .ref {
   font: 0.87rem/35px "Roboto", sans-serif;
-  color: grey;
+  color: #68686898;
 }
 
 main .information-section .information-container .information-header .information-header-right {
@@ -110,12 +112,12 @@ main .information-section .information-container .information-header .informatio
 main .information-section .information-container .information-header .information-header-right .deleteButton {
   margin: 0 10px;
   font-size: 1.07rem;
-  color: black;
+  color: #03061b;
 }
 
 main .information-section .information-container .information-header .information-header-right .editButton:hover,
 main .information-section .information-container .information-header .information-header-right .deleteButton:hover {
-  color: grey;
+  color: #c5a282;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
@@ -124,24 +126,24 @@ main .information-section .information-container .information-header .informatio
 main .information-section .information-container .information-header .information-header-right #insert {
   margin: 0 0 0 10px;
   font: 0.93rem "Urbanist", sans-serif;
-  color: lightgray;
+  color: #03061b;
   border-bottom: 1px solid;
 }
 
 main .information-section .information-container .information-header .information-header-right #cancel:hover,
 main .information-section .information-container .information-header .information-header-right #insert:hover {
-  color: black;
+  color: #c5a282;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
 
 main .information-section .information-container .information-header .information-header-right .price {
   font: 1.3rem "Urbanist", sans-serif;
-  color: gray;
+  color: #141414;
 }
 
 main .information-section .information-container .information-header .information-header-right .price span {
-  color: black;
+  color: #141414;
 }
 
 main .information-section .information-container .edit-body {
@@ -177,16 +179,16 @@ main .information-section .information-container .edit-body .body-content .conte
   padding: 10px 0 10px 8px;
   font: 0.87rem "Roboto", sans-serif;
   letter-spacing: 1px;
+  opacity: 0.67;
   background-color: #f3f3f32f;
-  color: black;
   border: 0.5px solid #ececec;
   border-radius: 5px;
   outline: none;
 }
 
-main .information-section .information-container .edit-body .body-content .content-row .editInput:hover {
-  background-color: #f3f3f36b;
-  border: 0.5px solid black;
+main .information-section .information-container .edit-body .body-content .content-row .editInput:hover, main .information-section .information-container .edit-body .body-content .content-row .editInput:focus {
+  opacity: 1;
+  border: 0.5px solid #141414;
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
@@ -238,13 +240,14 @@ main .information-section .information-container .information-body .main-carouse
   margin-bottom: 5px;
   font: 1.13rem "Italiana", serif;
   letter-spacing: 1px;
+  color: #c5a282;
 }
 
 main .information-section .information-container .information-body .main-carousel .information-cell .information-cell-right .information-specs .spec-value {
   margin-bottom: 20px;
-  font: 1.03rem "Roboto", sans-serif;
+  font: 1.03rem "Urbanist", sans-serif;
   letter-spacing: 0.5px;
-  color: grey;
+  color: #68686898;
 }
 
 main .information-section .information-container .information-body .flickity-prev-next-button {
@@ -269,17 +272,17 @@ main .information-section .information-container .information-footer .bagButton 
   padding: 8px;
   font: 0.93rem "Urbanist", sans-serif;
   letter-spacing: 1.5px;
-  background-color: black;
-  color: white;
+  background-color: #03061b;
+  color: #fff;
   border: none;
   border-radius: 5px;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
 }
 
 main .information-section .information-container .information-footer .bagButton:hover {
-  background-color: grey;
+  background-color: #c5a282;
   cursor: pointer;
-  -webkit-transition: all 0.15s;
-  transition: all 0.15s;
 }
 
 @media (min-width: 475px) {
