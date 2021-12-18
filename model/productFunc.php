@@ -217,6 +217,71 @@ function editProduct() {
     header("Location: template/product.php?idProduct=$product&editWatch=successful");   
 }
 
+function deleteProduct() {
+    require 'model/config/connect.php';
+    session_start();
+
+    // Assign the product id taken from the URL.
+    $product = filter_input(INPUT_GET, 'idProduct');
+
+    // Check if the product is inside someone's cart
+    $checkCart = 'SELECT * FROM cart WHERE product_idProduct =:product';
+    $stmt = $pdo->prepare($checkCart);
+    $stmt->execute([
+        ':product' => $product
+    ]);
+
+    // When results are found, first delete from cart, then delete from product.
+    // If not done in this order a SQL error occurs due to it's relation.
+    if ($stmt->rowCount() > 0) {
+        $deleteProductCart = 'DELETE FROM cart WHERE product_idProduct =:product;
+        DELETE FROM product WHERE idProduct =:product';
+        $stmt = $pdo->prepare($deleteProductCart);
+        $stmt->execute([
+            ':product' => $product
+        ]);
+
+        // Check if the product actually has been deleted.
+        $selectProduct = 'SELECT * FROM product WHERE product_idProduct =:product';
+        $stmt = $pdo->prepare($selectProduct);
+        $stmt->execute([
+            ':product' => $product
+        ]);
+
+        // If not? display an error.
+        if ($stmt->rowCount() > 0) {
+            header("Location: template/watches.php?deleteProduct=failed");
+        } elseif ($stmt->rowCount() == 0) {
+            // It did? Display a success message.
+            header("Location: template/watches.php?deleteProduct=successful");
+        }
+    } elseif ($stmt->rowCount() == 0) {
+        // When no results are found in the cart, just do the delete query.
+        // Should be faster when done seperate.
+        $deleteProduct = 'DELETE FROM product WHERE idProduct =:product';
+
+        $stmt = $pdo->prepare($deleteProduct);
+        $stmt->execute([
+            ':product' => $product
+        ]);
+
+        // Check if the product actually has been deleted.
+        $selectProduct = 'SELECT * FROM product WHERE product_idProduct =:product';
+        $stmt = $pdo->prepare($selectProduct);
+        $stmt->execute([
+            ':product' => $product
+        ]);
+
+        // If not? display an error.
+        if ($stmt->rowCount() > 0) {
+            header("Location: template/watches.php?deleteProduct=failed");
+        } elseif ($stmt->rowCount() == 0) {
+            // It did? Display a success message.
+            header("Location: template/watches.php?deleteProduct=successful");
+        }
+    }
+}
+
 function fetchCollectionFilter() {
     require '../model/config/connect.php';
 

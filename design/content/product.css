@@ -193,6 +193,32 @@ main .information-section .information-container .edit-body .body-content .conte
   transition: 0.25s;
 }
 
+main .information-section .information-container .delete-body {
+  display: -ms-grid;
+  display: grid;
+  padding: 30px 10px 10px 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+main .information-section .information-container .delete-body img {
+  height: 200px;
+}
+
+main .information-section .information-container .delete-body p {
+  margin-top: 30px;
+  font: bold 1rem "Urbanist", sans-serif;
+  letter-spacing: 1px;
+  color: #68686898;
+}
+
+main .information-section .information-container .delete-body p .ref {
+  line-height: 30px;
+  color: #141414;
+}
+
 main .information-section .information-container .information-body .main-carousel .information-cell {
   width: 100%;
 }
@@ -305,7 +331,7 @@ main .information-section .information-container .information-footer .bagButton:
     text-align: left;
   }
   main .collection-section .collection-container .collection-container-right img {
-    height: 200px;
+    height: 225px;
   }
   main .information-section {
     width: 100%;
@@ -356,6 +382,12 @@ main .information-section .information-container .information-footer .bagButton:
     font: 1.09rem "Roboto", sans-serif;
     letter-spacing: 0.5px;
   }
+  main .information-section .information-container .delete-body img {
+    height: 225px;
+  }
+  main .information-section .information-container .delete-body p {
+    font: bold 1.07rem "Roboto", sans-serif;
+  }
   main .information-section .information-container .information-footer {
     width: 100%;
     padding: 75px 0 0 0;
@@ -405,6 +437,9 @@ main .information-section .information-container .information-footer .bagButton:
     gap: 25px;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+  }
+  main .information-section .information-container .delete-body p {
+    font: bold 1.11rem "Urbanist", sans-serif;
   }
   main .information-section .information-container .information-body .main-carousel .information-cell {
     display: -webkit-box;

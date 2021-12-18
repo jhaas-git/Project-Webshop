@@ -49,7 +49,7 @@ body {
 }
 
 #failed {
-  background-color: rgba(202, 9, 9, 0.925);
+  background-color: #ca0909ec;
 }
 
 #success {

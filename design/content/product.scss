@@ -140,6 +140,27 @@ main {
                     }
                 }
             }
+
+            .delete-body {
+                display: grid;
+                padding: 30px 10px 10px 10px;
+                justify-content: center;
+                text-align: center;
+
+                img {
+                    height: 200px;
+                } p {
+                    margin-top: 30px;
+                    font: bold 1rem $font-text;
+                    letter-spacing: 1px;
+                    color: $color-text-shade;
+
+                    .ref {
+                        line-height: 30px;
+                        color: $color-text;
+                    }
+                }
+            }
             
             .information-body {
                 .main-carousel {
@@ -244,7 +265,7 @@ main {
                     width: 50%;
                     text-align: left;
                     img {
-                        height: 200px;
+                        height: 225px;
                     }
                 }
             }
@@ -305,6 +326,14 @@ main {
                                 }
                             }
                         }
+                    }
+                }    
+
+                .delete-body {    
+                    img {
+                        height: 225px;
+                    } p {
+                        font: bold 1.07rem $font-subtext;
                     }
                 }    
 
@@ -376,6 +405,12 @@ main {
                         }
                     }
                 }  
+                .delete-body {
+                    p {
+                        font: bold 1.11rem $font-text;
+                    }
+                }
+    
                 .information-body {
                     .main-carousel {
                         .information-cell {

@@ -15,13 +15,34 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../design/default/message.css">
     <link rel="stylesheet" href="../design/default/header.css">
     <link rel="stylesheet" href="../design/content/watches.css">
     <link rel="stylesheet" href="../design/default/footer.css">
     <title>Our watches | Audemars Piguet</title>
 </head>
 <body>
-    
+
+<?php 
+    if ($_GET['deleteProduct'] == 'successful') {
+        echo '
+        <div class="message-box" id="success">
+            <div class="message-content">
+                <p class="message">Product successfully deleted.</p>
+                <a href="watches.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['deleteProduct'] == 'failed') {
+        echo '
+        <div class="message-box" id="failed">
+            <div class="message-content">
+                <p class="message">Product could not be deleted.</p>
+                <a href="watches.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    }
+?>
+
 <?php include 'default/header.php'; ?>
 
 <main>

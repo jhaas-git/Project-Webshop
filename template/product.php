@@ -1,5 +1,6 @@
 <?php 
 
+include '../model/config/connect.php';
 include '../model/config/includes.php';
 session_start();
 
@@ -49,7 +50,7 @@ $productResult = fetchWatchInformation();
                 <?php 
                 // Employees are able to edit or delete a product.
                 if ($_SESSION['role_idRole'] == 1) {
-                    if ($_GET['editProduct'] == 'true') {
+                    if ($_GET['editProduct'] || $_GET['deleteProduct'] == 'true') {
                         echo ' <div class="information-header-right"><a href="product.php?idProduct='. $productResult['idProduct'] .'" id="cancel">Cancel</a></div> ';
                     } else {
                         echo '
@@ -96,6 +97,18 @@ $productResult = fetchWatchInformation();
                     </div>
                     <div class="information-footer"><button type="submit" class="bagButton">Update product</button></div>
                 </form>';
+            } elseif ($_SESSION['role_idRole'] == 1 && $_GET['deleteProduct'] == 'true') {
+                echo '
+                <form action="../index.php?productFunc=6&idProduct='. $productResult['idProduct'] .'" method="post">
+                <div class="delete-body">
+                    <div class="body-content">
+                        <img src="'. $productResult['sWatchMedia'] .'" alt="case_image">
+                        <p>Confirm before deletion<br><span class="ref">'. $productResult['sReferential'] .'</span></p>
+                    </div>
+                </div>
+                <div class="information-footer"><button type="submit" class="bagButton">Confirm deletion</button></div>
+                </form>
+                ';
             } else {
                 echo '
                 <div class="information-body">

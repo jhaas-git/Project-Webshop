@@ -18,14 +18,14 @@
         }
         .close-message:hover {
             cursor: pointer;
-            color: rgb(235, 235, 235);
+            color: #ebebeb;
             transition: all 0.15s;
         }
     }
 }
 
 #failed {
-    background-color: rgba(202, 9, 9, 0.925);
+    background-color: #ca0909ec;
 }
 
 #success {
