@@ -9,127 +9,145 @@ main {
         padding: 25px 15px;
 
         .profile-information-container {
-            width: 100%;
-            padding: 0 10px;
-            background-color: #fff;
-            border: 0.5px solid #ececec;
-            border-radius: 8px;
-            .profile-information-header {
-                display: flex;
-                padding: 15px 0 0 0;
-                justify-content: space-between;
-                .header-title {
-                    font: bold 1rem $font-text;
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(1, 1fr);
+
+            .profile-information-content {
+                background-color: $color-white;
+                border: 1px solid $color-border;
+                border-radius: 8px;
+
+                .profile-content-header {
+                    display: flex;
+                    padding: 15px 15px;
+                    font: bold 1rem $font-title;
                     text-transform: uppercase;
-                    letter-spacing: 1.5px;
-                }
-                .header-actions {
-                    .actionButton {
-                        margin-left: 10px;
-                        font: bold 1rem;
-                        color: black;
-                    }  
-                    #cancel,
-                    #insert {
-                        margin: 0 0 0 10px;
-                        font: 0.93rem $font-text;
-                        color: lightgray;
-                        border-bottom: 1px solid;
-                    }  
-                    #cancel:hover,
-                    #insert:hover {
-                        color: black;
-                        transition: all 0.15s;
+                    letter-spacing: 1px;
+                    justify-content: space-between;
+                    border-bottom: 1px solid $color-border;
+                    .editButton {
+                        color: $color-text-shade;
+                        transition: all .25s;
+                    } .editButton:hover {
+                        color: $color-accent;
                     }
                 }
-            }
-            .profile-information-body {
-                display: grid;
-                padding: 30px 0 20px 0;
-                .body-content {
-                    min-height: 200px;
-                    .content-row {
+
+                .profile-content-body {
+                    display: grid;
+                    padding: 20px 15px 0 15px;
+                    font: bold 0.96rem $font-text;
+                    letter-spacing: 1px;
+                    color: $color-text;
+                    .body-row {
                         display: grid;
-                        .title {
-                            font: bold 0.93rem/35px $font-subtext;
-                            letter-spacing: 1px;
-                        }
                         .value {
-                            padding: 0 0 15px 0;
-                            font: 0.93rem/35px $font-text;
-                            letter-spacing: 1px;
+                            margin: 15px 0 30px 0;
+                            font: 0.93rem $font-subtext;
+                            word-break: break-all;
+                            color: $color-brand;
                         }
-                        .editInput,
-                        .insertInput {
+                        input {
                             width: 100%;
-                            margin: 5px 0 20px 0;
-                            padding: 10px 0 10px 8px;
-                            font: 0.87rem $font-subtext;
+                            margin: 10px 0 15px 0;
+                            padding: 8px 0 8px 5px;
+                            font: 0.93rem $font-subtext;
                             letter-spacing: 1px;
                             background-color: #f3f3f32f;
-                            color: black;
-                            border: 0.5px solid #ececec;
+                            border: 1px solid $color-border;
                             border-radius: 5px;
                             outline: none;
-                        }
-                        .editInput:hover {
-                            background-color: #f3f3f36b;
-                            border: 0.5px solid black;
-                            transition: 0.25s;            
+                            transition: all .4s;
+                        } input:hover, input:focus {
+                            border: 1px solid $color-accent;
                         }
                     }
                 }
+                .profile-content-footer {
+                    padding: 0 15px 15px 15px;
+                    text-align: right;
+                    
+                    .submitButton {
+                        padding: 8px 8px;
+                        font: 0.89rem $font-subtext;
+                        letter-spacing: 1px;
+                        background-color: $color-brand;
+                        color: #fff;
+                        border: none;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        transition: all .25s;
+                    } .submitButton:hover {
+                        background-color: $color-accent;
+                    }            
+                }
             }
-            .password {
-                max-width: 500px;
-                margin: 0 auto;
-                display: flex;
-                .body-content {
-                    width: 100%;
-                    .content-row {
-                        width: 100%;
-                        .editInput {
-                            width: 100%;
+        }
+    }
+}
+
+@media (min-width: 475px) {
+    main {
+        min-height: 100vh;
+        .profile-information-section {    
+            .profile-information-container {
+                .profile-information-content {
+                    .profile-content-body {
+                        #double {
+                            gap: 0 15px;
+                            grid-template-columns: repeat(2, 1fr); 
                         }
+                        .body-row {
+                            #alignment {
+                                text-align: right;
+                            }
+                        }    
                     }
-                }
-            }
-            .profile-information-footer {
-                padding: 0 0 20px 0;
-                text-align: right;
-                .updateButton,
-                .insertButton {
-                    padding: 8px 10px;
-                    font: 0.87rem $font-subtext;
-                    letter-spacing: 1px;
-                    background-color: $color-brand;
-                    color: #fff;
-                    border: none;
-                    border-radius: 3px;
-                    cursor: pointer;
-                    transition: all .2s ease-in-out;
-                }
-                .updateButton:hover,
-                .insertButton:hover {
-                    background-color: $color-accent;
-                } 
+                }    
             }
         }
     }
 }
 
 @media (min-width: 768px) {
-    main {   
-        .profile-information-section {
+    main {
+        min-height: 100vh;
+        .profile-information-section {    
             .profile-information-container {
-                .profile-information-body {
-                    gap: 25px;
-                    grid-template-columns: repeat(2, 1fr);
-                    .body-content {
-                        #half {
-                            gap: 25px;
-                            grid-template-columns: repeat(2, 1fr);        
+                grid-template-columns: repeat(2, 1fr);
+                .profile-information-content {
+                    .profile-content-body {
+                        #double {
+                            grid-template-columns: repeat(1, 1fr);
                         }
+                        .body-row {
+                            #alignment {
+                                text-align: left;
+                            }
+                        }    
+                    }
+                }    
+            }
+        }
+    }
+}
+
+@media (min-width: 850px) {
+    main {
+        min-height: 100vh;
+        .profile-information-section {    
+            .profile-information-container {
+                .profile-information-content {
+                    .profile-content-body {
+                        #double {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+                        .body-row {
+                            #alignment {
+                                text-align: right;
+                            }
+                        }    
                     }
                 }    
             }

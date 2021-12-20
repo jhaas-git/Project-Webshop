@@ -20,6 +20,108 @@ main {
   background-color: white;
 }
 
+main .product-action-section {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 50px 15px 0 15px;
+}
+
+main .product-action-section .product-action-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+}
+
+main .product-action-section .product-action-container .product-action-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px 15px;
+  font: bold 1rem "Italiana", serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #ececec;
+}
+
+main .product-action-section .product-action-container .product-action-header #insert {
+  font: bold 0.93rem "Urbanist", sans-serif;
+  text-transform: none;
+  color: #68686898;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+main .product-action-section .product-action-container .product-action-header #insert:hover {
+  color: #141414;
+}
+
+main .product-action-section .product-action-container .product-action-body {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  padding: 20px 15px 0 15px;
+  font: bold 0.96rem "Urbanist", sans-serif;
+  letter-spacing: 1px;
+  color: #141414;
+}
+
+main .product-action-section .product-action-container .product-action-body .body-content .body-row {
+  display: -ms-grid;
+  display: grid;
+}
+
+main .product-action-section .product-action-container .product-action-body .body-content .body-row .value {
+  margin: 15px 0 30px 0;
+  font: 0.93rem "Roboto", sans-serif;
+  word-break: break-all;
+  color: #03061b;
+}
+
+main .product-action-section .product-action-container .product-action-body .body-content .body-row select, main .product-action-section .product-action-container .product-action-body .body-content .body-row input {
+  width: 100%;
+  margin: 10px 0 15px 0;
+  padding: 8px 0 8px 5px;
+  font: 0.93rem "Roboto", sans-serif;
+  letter-spacing: 1px;
+  background-color: #f3f3f32f;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  outline: none;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+main .product-action-section .product-action-container .product-action-body .body-content .body-row select:hover, main .product-action-section .product-action-container .product-action-body .body-content .body-row select:focus,
+main .product-action-section .product-action-container .product-action-body .body-content .body-row input:hover, main .product-action-section .product-action-container .product-action-body .body-content .body-row input:focus {
+  border: 1px solid #c5a282;
+}
+
+main .product-action-section .product-action-container .product-action-footer {
+  padding: 0 0 15px 0;
+}
+
+main .product-action-section .product-action-container .product-action-footer .submitButton {
+  padding: 8px 8px;
+  font: 0.89rem "Roboto", sans-serif;
+  letter-spacing: 1px;
+  background-color: #03061b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  -webkit-transition: all .25s;
+  transition: all .25s;
+}
+
+main .product-action-section .product-action-container .product-action-footer .submitButton:hover {
+  background-color: #c5a282;
+}
+
 main .filter-results-section {
   max-width: 1280px;
   margin: 0 auto;
@@ -242,6 +344,11 @@ main .watch-results-section .watch-results-container .product-display:hover .pro
 }
 
 @media (min-width: 550px) {
+  main .product-action-section .product-action-container .product-action-body .body-content #double {
+    gap: 0 15px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
   main .watch-results-section .watch-results-container {
     gap: 2rem 2rem;
     -ms-grid-columns: (1fr)[2];
@@ -253,6 +360,22 @@ main .watch-results-section .watch-results-container .product-display:hover .pro
 }
 
 @media (min-width: 850px) {
+  main .product-action-section .product-action-container .product-action-body {
+    gap: 0 15px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  main .product-action-section .product-action-container .product-action-body .body-content #double {
+    display: -ms-grid;
+    display: grid;
+    gap: 0 15px;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  main .product-action-section .product-action-container .product-action-body .collection {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
   main .watch-results-section .watch-results-container {
     gap: 2rem 2rem;
     -ms-grid-columns: (1fr)[3];

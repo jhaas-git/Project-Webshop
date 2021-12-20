@@ -30,6 +30,14 @@ $productResult = fetchWatchInformation();
                 <a href="product.php?idProduct='. $productResult['idProduct'] .'" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
+    } elseif ($_GET['insertBag'] == 'failed') {
+        echo '
+        <div class="message-box" id="failed">
+            <div class="message-content">
+                <p class="message">User must be signed in.</p>
+                <a href="product.php?idProduct='. $productResult['idProduct'] .'" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
     }
     ?>
 

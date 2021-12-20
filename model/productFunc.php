@@ -51,9 +51,9 @@ function insertCollection() {
         ]);
 
         // When a new collection was inserted, a success message will be displayed.
-        header("location: template/profile.php?insertCollection=successful");
+        header("location: template/watches.php?insertCollection=successful");
     } else {
-        header("location: template/profile.php?insertCollection=failed");
+        header("location: template/watches.php?insertCollection=failed");
     }
     $pdo=null;
 }
@@ -92,9 +92,9 @@ function insertMovement() {
         ]);
 
         // When a new movement was inserted, a success message will be displayed.
-        header("location: template/profile.php?insertMovement=successful");
+        header("location: template/watches.php?insertMovement=successful");
     } else {
-        header("location: template/profile.php?insertMovement=failed");
+        header("location: template/watches.php?insertMovement=failed");
     }
     $pdo=null;
 }
@@ -142,9 +142,9 @@ function insertWatch() {
         ]);
 
         // When a new watch was inserted, a success message will be displayed.
-        header("location: template/profile.php?insertWatch=successful");
+        header("location: template/watches.php?insertWatch=successful");
     } else {
-        header("location: template/profile.php?insertWatch=failed");
+        header("location: template/watches.php?insertWatch=failed");
     }
     $pdo=null;
 }

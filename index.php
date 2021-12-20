@@ -14,6 +14,8 @@ if (isset($_GET['accountFunc'])) {
         break;
         case 5:changePassword();
         break;
+        case 6:editAddressInformation();
+        break;
     }
 } elseif (isset($_GET['productFunc'])) {
     include 'model/productFunc.php';

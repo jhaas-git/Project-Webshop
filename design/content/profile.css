@@ -66,7 +66,7 @@ body {
 }
 
 #failed {
-  background-color: rgba(202, 9, 9, 0.925);
+  background-color: #ca0909ec;
 }
 
 #success {
@@ -84,151 +84,145 @@ main .profile-information-section {
 }
 
 main .profile-information-section .profile-information-container {
-  width: 100%;
-  padding: 0 10px;
+  display: -ms-grid;
+  display: grid;
+  gap: 15px;
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
+}
+
+main .profile-information-section .profile-information-container .profile-information-content {
   background-color: #fff;
-  border: 0.5px solid #ececec;
+  border: 1px solid #ececec;
   border-radius: 8px;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header {
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 15px 0 0 0;
+  padding: 15px 15px;
+  font: bold 1rem "Italiana", serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border-bottom: 1px solid #ececec;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header .header-title {
-  font: bold 1rem "Urbanist", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-header .editButton {
+  color: #68686898;
+  -webkit-transition: all .25s;
+  transition: all .25s;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header .header-actions .actionButton {
-  margin-left: 10px;
-  font: bold 1rem;
-  color: black;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-header .editButton:hover {
+  color: #c5a282;
 }
 
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel,
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #insert {
-  margin: 0 0 0 10px;
-  font: 0.93rem "Urbanist", sans-serif;
-  color: lightgray;
-  border-bottom: 1px solid;
-}
-
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #cancel:hover,
-main .profile-information-section .profile-information-container .profile-information-header .header-actions #insert:hover {
-  color: black;
-  -webkit-transition: all 0.15s;
-  transition: all 0.15s;
-}
-
-main .profile-information-section .profile-information-container .profile-information-body {
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-body {
   display: -ms-grid;
   display: grid;
-  padding: 30px 0 20px 0;
+  padding: 20px 15px 0 15px;
+  font: bold 0.96rem "Urbanist", sans-serif;
+  letter-spacing: 1px;
+  color: #141414;
 }
 
-main .profile-information-section .profile-information-container .profile-information-body .body-content {
-  min-height: 200px;
-}
-
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row {
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row {
   display: -ms-grid;
   display: grid;
 }
 
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .title {
-  font: bold 0.93rem/35px "Roboto", sans-serif;
-  letter-spacing: 1px;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row .value {
+  margin: 15px 0 30px 0;
+  font: 0.93rem "Roboto", sans-serif;
+  word-break: break-all;
+  color: #03061b;
 }
 
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .value {
-  padding: 0 0 15px 0;
-  font: 0.93rem/35px "Urbanist", sans-serif;
-  letter-spacing: 1px;
-}
-
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .editInput,
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .insertInput {
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row input {
   width: 100%;
-  margin: 5px 0 20px 0;
-  padding: 10px 0 10px 8px;
-  font: 0.87rem "Roboto", sans-serif;
+  margin: 10px 0 15px 0;
+  padding: 8px 0 8px 5px;
+  font: 0.93rem "Roboto", sans-serif;
   letter-spacing: 1px;
   background-color: #f3f3f32f;
-  color: black;
-  border: 0.5px solid #ececec;
+  border: 1px solid #ececec;
   border-radius: 5px;
   outline: none;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
-main .profile-information-section .profile-information-container .profile-information-body .body-content .content-row .editInput:hover {
-  background-color: #f3f3f36b;
-  border: 0.5px solid black;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row input:hover, main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row input:focus {
+  border: 1px solid #c5a282;
 }
 
-main .profile-information-section .profile-information-container .password {
-  max-width: 500px;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-main .profile-information-section .profile-information-container .password .body-content {
-  width: 100%;
-}
-
-main .profile-information-section .profile-information-container .password .body-content .content-row {
-  width: 100%;
-}
-
-main .profile-information-section .profile-information-container .password .body-content .content-row .editInput {
-  width: 100%;
-}
-
-main .profile-information-section .profile-information-container .profile-information-footer {
-  padding: 0 0 20px 0;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-footer {
+  padding: 0 15px 15px 15px;
   text-align: right;
 }
 
-main .profile-information-section .profile-information-container .profile-information-footer .updateButton,
-main .profile-information-section .profile-information-container .profile-information-footer .insertButton {
-  padding: 8px 10px;
-  font: 0.87rem "Roboto", sans-serif;
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-footer .submitButton {
+  padding: 8px 8px;
+  font: 0.89rem "Roboto", sans-serif;
   letter-spacing: 1px;
   background-color: #03061b;
   color: #fff;
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  -webkit-transition: all .2s ease-in-out;
-  transition: all .2s ease-in-out;
+  -webkit-transition: all .25s;
+  transition: all .25s;
 }
 
-main .profile-information-section .profile-information-container .profile-information-footer .updateButton:hover,
-main .profile-information-section .profile-information-container .profile-information-footer .insertButton:hover {
+main .profile-information-section .profile-information-container .profile-information-content .profile-content-footer .submitButton:hover {
   background-color: #c5a282;
 }
 
-@media (min-width: 768px) {
-  main .profile-information-section .profile-information-container .profile-information-body {
-    gap: 25px;
+@media (min-width: 475px) {
+  main {
+    min-height: 100vh;
+  }
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body #double {
+    gap: 0 15px;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
   }
-  main .profile-information-section .profile-information-container .profile-information-body .body-content #half {
-    gap: 25px;
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row #alignment {
+    text-align: right;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    min-height: 100vh;
+  }
+  main .profile-information-section .profile-information-container {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
+  }
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body #double {
+    -ms-grid-columns: (1fr)[1];
+        grid-template-columns: repeat(1, 1fr);
+  }
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row #alignment {
+    text-align: left;
+  }
+}
+
+@media (min-width: 850px) {
+  main {
+    min-height: 100vh;
+  }
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body #double {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  main .profile-information-section .profile-information-container .profile-information-content .profile-content-body .body-row #alignment {
+    text-align: right;
   }
 }
 /*# sourceMappingURL=profile.css.map */

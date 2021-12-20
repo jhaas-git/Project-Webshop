@@ -45,54 +45,6 @@ $profileResult = fetchProfileInformation();
             <a href="profile.php?changePass=true" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['insertCollection'] == 'successful') {
-    echo '
-    <div class="message-box" id="success">
-        <div class="message-content">
-            <p class="message">Collection successfully inserted.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
-} elseif ($_GET['insertCollection'] == 'failed') {
-    echo '
-    <div class="message-box" id="failed">
-        <div class="message-content">
-            <p class="message">Collection already exists.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
-} elseif ($_GET['insertMovement'] == 'successful') {
-    echo '
-    <div class="message-box" id="success">
-        <div class="message-content">
-            <p class="message">Movement successfully inserted.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
-} elseif ($_GET['insertMovement'] == 'failed') {
-    echo '
-    <div class="message-box" id="failed">
-        <div class="message-content">
-            <p class="message">Movement already exists.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
-} elseif ($_GET['insertWatch'] == 'successful') {
-    echo '
-    <div class="message-box" id="success">
-        <div class="message-content">
-            <p class="message">Watch successfully inserted.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
-} elseif ($_GET['insertWatch'] == 'failed') {
-    echo '
-    <div class="message-box" id="failed">
-        <div class="message-content">
-            <p class="message">Watch already exists.</p>
-            <a href="profile.php" class="close-message bi bi-x-lg"></a>
-        </div>
-    </div>';
 }
 ?>
 
@@ -101,207 +53,89 @@ $profileResult = fetchProfileInformation();
 <main>
     <section class="profile-information-section">
         <div class="profile-information-container">
-            <div class="profile-information-header">
-            <?php if ($_GET['editProfile'] == 'true') {
-            echo '
-                <div class="header-title">Update profile</div>
-                <div class="header-actions"><a href="profile.php" id="cancel">cancel</a></div>';
-            } elseif ($_GET['changePass'] == 'true') {
-                echo '
-                <div class="header-title">Change Password</div>
-                <div class="header-actions"><a href="profile.php" id="cancel">cancel</a></div>';
-            } else {
-            echo '
-                <div class="header-title">Profile information</div>
-                <div class="header-actions">
-                    <a href="profile.php?editProfile=true" class="bi bi-pencil actionButton"></a>
-                    <a href="profile.php?changePass=true" class="bi bi-shield-lock actionButton"></a>
-                </div>';
-            } ?>
-            </div>
-            <?php 
-            // When clicking the pencil, the editProfile state will be true.
-            // This will display the form used for changing profile details.
-            if ($_GET['editProfile'] == 'true') {
-            echo '
-                <form action="../index.php?accountFunc=3" method="post">
-                <div class="profile-information-body">
-                    <div class="body-content">
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">First name *</label><input class="editInput" type="text" name="firstname" value="'. $profileResult['sFirstName'] .'" required></div>
-                            <div class="input-container"><label class="title">Last name *</label><input class="editInput" type="text" name="lastname" value="'. $profileResult['sLastName'] .'" required></div>
-                        </div>
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Date of Birth</label><input class="editInput" type="date" name="birthdate" value="'. $profileResult['dDateOfBirth'] .'"></div>
-                            <div class="input-container"><label class="title">E-mail *</label><input class="editInput" type="email" name="mailaddress" value="'. $profileResult['sMailAddress'] .'" required></div>
-                        </div>
-                    </div>
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">City</label><input class="editInput" type="text" name="city" value="'. $profileResult['sCity'] .'"></div>
-                            <div class="input-container"><label class="title">Street</label><input class="editInput" type="text" name="street" value="'. $profileResult['sStreetName'] .'"></div>
-                        </div>
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">House number</label><input class="editInput" type="number" name="housenumber" value="'. $profileResult['iHouseNumber'] .'"></div>
-                            <div class="input-container"><label class="title">Postal code</label><input class="editInput" type="text" name="postal" value="'. $profileResult['sPostalCode'] .'"></div>
-                        </div>
+            <div class="profile-information-content">
+                <div class="profile-content-header">
+                    <div class="header-title"><p>Profile</p></div>
+                    <div class="header-actions">
+                        <?php if ($_GET['editProfile'] == 'true') {
+                            echo '<a href="profile.php" class="bi bi-x-lg"></a>';
+                        } else {
+                            echo '<a href="profile.php?editProfile=true" class="bi bi-pencil editButton"></a>';
+                        }?>
                     </div>
                 </div>
-                <div class="profile-information-footer"><button type="submit" class="updateButton">Update profile</button></div>
-                </form>';
-            } 
-            // When clicking the shield lock, the changePassword state will be true.
-            // This will display the change password form.
-            elseif ($_GET['changePass'] == 'true') {
-            echo '
-            <form action="../index.php?accountFunc=5" method="post">
-            <div class="profile-information-body password">
-                <div class="body-content">
-                    <div class="content-row">
-                        <div class="input-container"><label class="title">New password</label><input class="editInput" type="password" name="newPassword" placeholder="************"></div>
-                        <div class="input-container"><label class="title">Repeat new password</label><input class="editInput" type="password" name="repeatPassword" placeholder="************" required></div>
+                <div class="profile-content-body">
+                    <form action="../index.php?accountFunc=3" method="post">
+                    <div class="body-row" id="double">
+                        <?php if ($_GET['editProfile'] == 'true') {
+                            echo '
+                            <div class="body-input"><label>First name</label><input type="text" name="firstname" value="'. $profileResult['sFirstName'] .'"></div>
+                            <div class="body-input"><label>Last name</label><input type="text" name="lastname" value="'. $profileResult['sLastName'] .'"></div>';                                
+                        } else {
+                            echo '
+                            <div class="body-input"><label>First name</label><p class="value">'. $profileResult['sFirstName'] .'</p></div>
+                            <div class="body-input" id="alignment"><label>Last name</label><p class="value">'. $profileResult['sLastName'] .'</p></div>';
+                        } ?>
+                    </div>
+                    <div class="body-row">
+                        <?php if ($_GET['editProfile'] == 'true') {
+                            echo '
+                            <div class="body-input"><label>Date of Birth</label><input type="date" name="birthdate" value="'. $profileResult['dDateOfBirth'] .'"></div>
+                            <div class="body-input"><label>E-mail</label><input type="text" name="mailaddress" value="'. $profileResult['sMailAddress'] .'"></div>';                                
+                        } else {
+                            echo '
+                            <div class="body-input"><label>Date of Birth</label><p class="value">'. $profileResult['dDateOfBirth'] .'</p></div>
+                            <div class="body-input"><label>E-mail</label><p class="value">'. $profileResult['sMailAddress'] .'</p></div>';
+                        } ?>
                     </div>
                 </div>
+                <?php if ($_GET['editProfile'] =='true') {
+                    echo '<div class="profile-content-footer"><button type="submit" class="submitButton">Update profile</button></div>';
+                } ?>
+                </form>
             </div>
-            <div class="profile-information-footer"><button type="submit" class="updateButton">Change password</button></div>
-            </form>';
-            } 
-            // When opening the profile.php page this (your profile information) will be displayed on default.
-            else {
-                echo '
-                <div class="profile-information-body">
-                    <div class="body-content">
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">First name</label><p class="value">'. $profileResult['sFirstName'] .'</p></div>
-                            <div class="input-container"><label class="title">Last name</label><p class="value">'. $profileResult['sLastName'] .'</p></div>
-                        </div>
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Date of Birth</label><p class="value">'. $profileResult['dDateOfBirth'] .'</p></div>
-                            <div class="input-container"><label class="title">E-mail</label><p class="value">'. $profileResult['sMailAddress'] .'</p></div>
-                        </div>
+            <div class="profile-information-content">
+                <div class="profile-content-header">
+                    <div class="header-title">Shipping address</div>
+                    <div class="header-actions">
+                        <?php if ($_GET['editAddress'] == 'true') {
+                            echo '<a href="profile.php" class="bi bi-x-lg"></a>';
+                        } else {
+                            echo '<a href="profile.php?editAddress=true" class="bi bi-pencil editButton"></a>';
+                        } ?>
                     </div>
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">City</label><p class="value">'. $profileResult['sCity'] .'</p></div>
-                            <div class="input-container"><label class="title">Street</label><p class="value">'. $profileResult['sStreetName'] .'</p></div>
-                        </div>
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">House number</label><p class="value">'. $profileResult['iHouseNumber'] .'</p></div>
-                            <div class="input-container"><label class="title">Postal code</label><p class="value">'. $profileResult['sPostalCode'] .'</p></div>
-                        </div>
+                </div>
+                <div class="profile-content-body">
+                    <form action="../index.php?accountFunc=6" method="post">
+                    <div class="body-row" id="double">
+                        <?php if ($_GET['editAddress'] == 'true') {
+                            echo '
+                            <div class="body-input"><label>Street</label><input type="text" name="street" value="'. $profileResult['sStreetName'] .'"></div>
+                            <div class="body-input"><label>House number</label><input type="text" name="housenumber" value="'. $profileResult['iHouseNumber'] .'"></div>';                                
+                        } else {
+                            echo '
+                            <div class="body-input"><label>Street</label><p class="value">'. $profileResult['sStreetName'] .'</p></div>
+                            <div class="body-input" id="alignment"><label>House number</label><p class="value">'. $profileResult['iHouseNumber'] .'</p></div>';
+                        } ?>
                     </div>
-                </div>';
-            }?>
+                    <div class="body-row">
+                        <?php if ($_GET['editAddress'] == 'true') {
+                            echo '
+                            <div class="body-input"><label>Postal code</label><input type="text" name="postal" value="'. $profileResult['sPostalCode'] .'"></div>
+                            <div class="body-input"><label>Street</label><input type="text" name="city" value="'. $profileResult['sCity'] .'"></div>';                                
+                        } else {
+                            echo '
+                            <div class="body-input"><label>Postal code</label><p class="value">'. $profileResult['sPostalCode'] .'</p></div>
+                            <div class="body-input"><label>City</label><p class="value">'. $profileResult['sCity'] .'</p></div>';
+                        } ?>
+                    </div>
+                </div>
+                <?php if ($_GET['editAddress'] =='true') {
+                    echo '<div class="profile-content-footer"><button type="submit" class="submitButton">Update address</button></div>';
+                } ?>
+                </form>
+            </div>
         </div>
-    </section>
-
-    <section class="profile-information-section">
-        <!-- Display the header and body content for employees. -->
-        <?php if ($_SESSION['role_idRole'] == 1) {
-            echo '
-            <div class="profile-information-container">
-            <div class="profile-information-header">';
-                if ($_GET['addCollection'] == 'true') {
-                echo '
-                    <div class="header-title">Insert collection</div>
-                    <div class="header-actions">
-                        <a href="profile.php" id="insert">Watch</a>
-                        <a href="profile.php?addMovement=true" id="insert">Movement</a>
-                    </div>';
-                } elseif ($_GET['addMovement'] == 'true') {
-                    echo '
-                    <div class="header-title">Insert movement</div>
-                    <div class="header-actions">
-                        <a href="profile.php" id="insert">Watch</a>
-                        <a href="profile.php?addCollection=true" id="insert">Collection</a>
-                    </div>';
-                } else {
-                    echo '
-                    <div class="header-title">Insert watch</div>
-                    <div class="header-actions">
-                        <a href="profile.php?addCollection=true" id="insert">Collection</a>
-                        <a href="profile.php?addMovement=true" id="insert">Movement</a>
-                    </div>';
-                }
-            echo '</div>'; // ending the profile-information header div.
-            if ($_GET['addCollection'] == 'true') {
-                // Form for inserting new collections.
-                echo '
-                <form action="../index.php?productFunc=1" method="post">
-                <div class="profile-information-body password">
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Collection *</label><input class="insertInput" type="text" name="collection" required></div>
-                            <div class="input-container"><label class="title">Description *</label><input class="insertInput" type="text" name="description" required></div>
-                            <div class="input-container"><label class="title">Collection image *</label><input class="insertInput" type="text" name="image" required></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-information-footer"><button type="submit" class="insertButton">Add collection</button></div>
-                </form>';
-            } elseif ($_GET['addMovement'] == 'true') {
-                // Form for inserting new movements.
-                echo '
-                <form action="../index.php?productFunc=2" method="post">
-                <div class="profile-information-body">
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Calibre *</label><input class="insertInput" type="text" name="calibre" required></div>
-                            <div class="input-container"><label class="title">Mechanism *</label><input class="insertInput" type="text" name="mechanism" required></div>
-                            <div class="input-container"><label class="title">Amount of Parts *</label><input class="insertInput" type="number" name="parts" required></div>
-                        </div>
-                    </div>
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Calibre image *</label><input class="insertInput" type="text" name="image" required></div>
-                            <div class="input-container"><label class="title">Power Reserve *</label><input class="insertInput" type="text" name="power" required></div>
-                            <div class="input-container"><label class="title">Function *</label><input class="insertInput" type="text" name="function" required></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-information-footer"><button type="submit" class="insertButton">Add movement</button></div>
-                </form>';
-            } else {
-                // Form for inserting new watches.
-                echo '
-                <form action="../index.php?productFunc=3" method="post">
-                <div class="profile-information-body">
-                    <div class="body-content">
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">Collection *</label><select class="insertInput" name="collection" required>'; fetchCollection(); echo '</select></div>
-                            <div class="input-container"><label class="title">Model Name *</label><input class="insertInput" type="text" name="model" required></div>
-                        </div>
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Referential number *</label><input class="insertInput" type="text" name="referential" required></div>
-                            <div class="input-container"><label class="title">Movement *</label><select class="insertInput" name="movement" required>'; fetchMovements(); echo '</select></div>
-                            <div class="input-container"><label class="title">Watch image *</label><input class="insertInput" type="text" name="watch" required></div>
-                            <div class="input-container"><label class="title">Price *</label><input class="insertInput" type="text" name="price" required></div>
-                        </div>
-                    </div>
-                    <div class="body-content">
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Case Material *</label><input class="insertInput" type="text" name="material"></div>
-                            <div class="input-container"><label class="title">Case IPX *</label><input class="insertInput" type="text" name="ipx"></div>
-                        </div>
-                        <div class="content-row" id="half">
-                            <div class="input-container"><label class="title">Case Thickness *</label><input class="insertInput" type="text" name="thickness"></div>
-                            <div class="input-container"><label class="title">Case Size *</label><input class="insertInput" type="text" name="size"></div>
-                        </div>
-                        <div class="content-row">
-                            <div class="input-container"><label class="title">Case image</label><input class="insertInput" type="text" name="case" required></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="profile-information-footer"><button type="submit" class="insertButton">Add watch</button></div>
-                </form>';
-            }
-        } else {
-            // Display the headers and content for customers.
-            echo '
-            <div class="profile-information-container">
-            <p>Display customer content</p>';
-        }
-        ?>
     </section>
 </main>
 

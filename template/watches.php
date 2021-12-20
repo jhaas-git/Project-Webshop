@@ -40,12 +40,156 @@ session_start();
                 <a href="watches.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
+    } elseif ($_GET['insertCollection'] == 'successful') {
+        echo '
+        <div class="message-box" id="success">
+            <div class="message-content">
+                <p class="message">Collection successfully inserted.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['insertCollection'] == 'failed') {
+        echo '
+        <div class="message-box" id="failed">
+            <div class="message-content">
+                <p class="message">Collection already exists.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['insertMovement'] == 'successful') {
+        echo '
+        <div class="message-box" id="success">
+            <div class="message-content">
+                <p class="message">Movement successfully inserted.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['insertMovement'] == 'failed') {
+        echo '
+        <div class="message-box" id="failed">
+            <div class="message-content">
+                <p class="message">Movement already exists.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['insertWatch'] == 'successful') {
+        echo '
+        <div class="message-box" id="success">
+            <div class="message-content">
+                <p class="message">Watch successfully inserted.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
+    } elseif ($_GET['insertWatch'] == 'failed') {
+        echo '
+        <div class="message-box" id="failed">
+            <div class="message-content">
+                <p class="message">Watch already exists.</p>
+                <a href="profile.php" class="close-message bi bi-x-lg"></a>
+            </div>
+        </div>';
     }
 ?>
 
 <?php include 'default/header.php'; ?>
 
 <main>
+<?php if ($_SESSION['role_idRole'] == 1) {
+echo '
+<section class="product-action-section">
+    <div class="product-action-container">
+        <div class="product-action-header">
+            <div class="header-title">'; ?><?php if ($_GET['insertCollection']) {
+                echo '<p>Insert collection</p>';
+            } elseif ($_GET['insertMovement']) {
+                echo '<p>Insert movement</p>';
+            } else {
+                echo '<p>Insert watch</p>';
+            } ?></div>
+            <div class="header-actions"><?php if ($_GET['insertCollection']) {
+                echo '<a href="watches.php" id="insert">Watch</a>
+                <a href="watches.php?insertMovement=true" id="insert">Movement</a>';
+            } elseif ($_GET['insertMovement']) {
+                echo '<a href="watches.php" id="insert">Watch</a>
+                <a href="watches.php?insertCollection=true" id="insert">Collection</a>';
+            } else {
+                echo '<a href="watches.php?insertCollection=true" id="insert">Collection</a>
+                <a href="watches.php?insertMovement=true" id="insert">Movement</a>';
+            } ?></div>
+        </div>
+        <div class="product-action-body">
+            <?php if ($_GET['insertCollection'] == 'true') {
+                echo '
+                <div class="body-content">
+                <form action="../index.php?productFunc=1" method="post">
+                    <div class="body-row" id="double">
+                        <div class="body-input"><label class="value">Collection *</label><input class="insertInput" type="text" name="collection" required></div>
+                        <div class="body-input"><label class="value">Description *</label><input class="insertInput" type="text" name="description" required></div>
+                    </div>
+                </div>
+                <div class="body-content">
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Collection image *</label><input class="insertInput" type="text" name="image" required></div>
+                    </div>
+                </div>
+                <div class="product-action-footer"><button type="submit" class="submitButton">Insert collection</button></div>
+                </form>';
+            } elseif ($_GET['insertMovement'] == 'true') {
+                echo '
+                <div class="body-content">
+                <form action="../index.php?productFunc=2" method="post">
+                    <div class="body-row" id="double">
+                        <div class="body-input"><label class="value">Calibre *</label><input class="insertInput" type="text" name="calibre" required></div>
+                        <div class="body-input"><label class="value">Amount of Parts *</label><input class="insertInput" type="number" name="parts" required></div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Power Reserve *</label><input class="insertInput" type="text" name="power" required></div>
+                        <div class="body-input"><label class="value">Mechanism *</label><input class="insertInput" type="text" name="mechanism" required></div>
+                    </div>
+                </div>
+                <div class="body-content">
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Function *</label><input class="insertInput" type="text" name="function" required></div>
+                        <div class="body-input"><label class="value">Calibre image *</label><input class="insertInput" type="text" name="image" required></div>
+                    </div>
+                </div>
+                <div class="product-action-footer"><button type="submit" class="submitButton">Insert movement</button></div>
+                </form>';
+            } else {
+                echo '
+                <div class="body-content">
+                <form action="../index.php?productFunc=3" method="post">
+                    <div class="body-row" id="double">
+                        <div class="body-input"><label class="value">Model Name *</label><input class="insertInput" type="text" name="model" required></div>
+                        <div class="body-input"><label class="value">Collection *</label><select class="insertInput" name="collection" required>'; fetchCollection(); echo '</select></div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Ref *</label><input class="insertInput" type="text" name="referential" required></div>
+                        <div class="input-container"><label class="value">Movement *</label><select class="insertInput" name="movement" required>'; fetchMovements(); echo '</select></div>
+                        <div class="body-input"><label class="value">Watch image</label><input class="insertInput" type="text" name="watch" required></div>
+                        <div class="body-input"><label class="value">Price *</label><input class="insertInput" type="text" name="price"></div>
+                    </div>
+                </div>
+                <div class="body-content">
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Case IPX *</label><input class="insertInput" type="text" name="ipx"></div>
+                        <div class="body-input"><label class="value">Material *</label><input class="insertInput" type="text" name="material"></div>
+                    </div>
+                    <div class="body-row" id="double">
+                        <div class="body-input"><label class="value">Case Thickness *</label><input class="insertInput" type="text" name="thickness"></div>
+                        <div class="body-input"><label class="value">Case Size *</label><input class="insertInput" type="text" name="size"></div>
+                    </div>
+                    <div class="body-row">
+                        <div class="body-input"><label class="value">Case image</label><input class="insertInput" type="text" name="case" required></div>
+                    </div>
+                </div>
+                <div class="product-action-footer"><button type="submit" class="submitButton">Insert product</button></div>
+                </form>';
+            } ?> <?php echo '
+        </div>
+    </div>
+</section>
+'; } ?>
 
 <section class="filter-results-section">
     <div class="filter-results-container">

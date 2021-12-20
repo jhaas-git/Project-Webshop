@@ -4,6 +4,90 @@ main {
     min-height: 100vh;
     background-color: white;
 
+    .product-action-section {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 50px 15px 0 15px;
+
+        .product-action-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background-color: $color-white;
+            border: 1px solid $color-border;
+            border-radius: 8px;
+
+            .product-action-header {
+                display: flex;
+                padding: 15px 15px;
+                font: bold 1rem $font-title;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                justify-content: space-between;
+                border-bottom: 1px solid $color-border;
+
+                #insert {
+                    font: bold 0.93rem $font-text;
+                    text-transform: none;
+                    color: $color-text-shade;
+                    transition: all .25s;
+                } #insert:hover {
+                    color: $color-text;
+                }
+            }
+
+            .product-action-body {
+                display: grid;
+                width: 100%;
+                padding: 20px 15px 0 15px;
+                font: bold 0.96rem $font-text;
+                letter-spacing: 1px;
+                color: $color-text;
+                .body-content {
+                    .body-row {
+                        display: grid;
+                        .value {
+                            margin: 15px 0 30px 0;
+                            font: 0.93rem $font-subtext;
+                            word-break: break-all;
+                            color: $color-brand;
+                        }
+                        select, input {
+                            width: 100%;
+                            margin: 10px 0 15px 0;
+                            padding: 8px 0 8px 5px;
+                            font: 0.93rem $font-subtext;
+                            letter-spacing: 1px;
+                            background-color: #f3f3f32f;
+                            border: 1px solid $color-border;
+                            border-radius: 5px;
+                            outline: none;
+                            transition: all .4s;
+                        } select:hover, select:focus, 
+                        input:hover, input:focus {
+                            border: 1px solid $color-accent;
+                        }
+                    }
+                }
+            }
+            .product-action-footer {
+                padding: 0 0 15px 0;
+                .submitButton {
+                    padding: 8px 8px;
+                    font: 0.89rem $font-subtext;
+                    letter-spacing: 1px;
+                    background-color: $color-brand;
+                    color: #fff;
+                    border: none;
+                    border-radius: 3px;
+                    cursor: pointer;
+                    transition: all .25s;
+                } .submitButton:hover {
+                    background-color: $color-accent;
+                }            
+            }
+        }
+    }
+
     .filter-results-section {
         max-width: 1280px;
         margin: 0 auto;
@@ -185,6 +269,19 @@ main {
 
 @media (min-width: 550px) {
     main {    
+        .product-action-section {
+            .product-action-container {
+                .product-action-body {
+                    .body-content {
+                        #double {
+                            gap: 0 15px;
+                            grid-template-columns: repeat(2, 1fr); 
+                        }    
+                    }
+                }
+            }
+        }
+    
         .watch-results-section {
             .watch-results-container {
                 gap: 2rem 2rem;
@@ -203,6 +300,25 @@ main {
 
 @media (min-width: 850px) {
     main {
+        .product-action-section {
+            .product-action-container {
+                .product-action-body {
+                    gap: 0 15px;
+                    grid-template-columns: repeat(2, 1fr);
+                    .body-content {
+                        #double {
+                            display: grid;
+                            gap: 0 15px;
+                            grid-template-columns: repeat(2, 1fr); 
+                        }    
+                    }
+                    .collection {
+                        grid-template-columns: repeat(1, 1fr);
+                    }
+                }
+            }
+        }
+
         .watch-results-section {
             .watch-results-container {
                 gap: 2rem 2rem;

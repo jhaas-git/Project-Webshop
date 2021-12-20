@@ -21,7 +21,8 @@ function insertBag() {
         // This refresh will show an amount of products next to their bag.
         header("location: template/product.php?idProduct=$product");
     } else {
-        echo 'Can not do that mate';
+        // Users must be logged in to place items in their bag. Show an error when they haven't signed in.
+        header("location: template/product.php?idProduct=$product&insertBag=failed");
     }
 }
 
