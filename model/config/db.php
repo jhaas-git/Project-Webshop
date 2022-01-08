@@ -1,6 +1,6 @@
 <?php 
      $host = 'mysql';
      $db = 'AudemarsPiguet';
-     $user = 'root';
+     $user = 'joey';
      $password = 'root';
 ?>

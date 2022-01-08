@@ -43,6 +43,8 @@ if (isset($_GET['accountFunc'])) {
         case 2:deleteProductCart();
         break;
     }
+} else {
+    header("location: template/watches.php");
 }
 
 ?>

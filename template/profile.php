@@ -122,7 +122,7 @@ $profileResult = fetchProfileInformation();
                         <?php if ($_GET['editAddress'] == 'true') {
                             echo '
                             <div class="body-input"><label>Postal code</label><input type="text" name="postal" value="'. $profileResult['sPostalCode'] .'"></div>
-                            <div class="body-input"><label>Street</label><input type="text" name="city" value="'. $profileResult['sCity'] .'"></div>';                                
+                            <div class="body-input"><label>City</label><input type="text" name="city" value="'. $profileResult['sCity'] .'"></div>';                                
                         } else {
                             echo '
                             <div class="body-input"><label>Postal code</label><p class="value">'. $profileResult['sPostalCode'] .'</p></div>
