@@ -22,7 +22,7 @@ $productResult = fetchWatchInformation();
     <title><?php echo $productResult['sReferential'] ?> | Audemars Piguet</title>
 </head>
 <body>
-    <?php if ($_GET['editWatch'] == 'successful') {
+    <?php if (isset($_GET['editWatch']) && $_GET['editWatch'] == 'successful') {
         echo '
         <div class="message-box" id="success">
             <div class="message-content">
@@ -30,7 +30,7 @@ $productResult = fetchWatchInformation();
                 <a href="product.php?idProduct='. $productResult['idProduct'] .'" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertBag'] == 'failed') {
+    } elseif (isset($_GET['insertBag']) && $_GET['insertBag'] == 'failed') {
         echo '
         <div class="message-box" id="failed">
             <div class="message-content">

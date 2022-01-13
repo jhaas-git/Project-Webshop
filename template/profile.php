@@ -29,7 +29,7 @@ $profileResult = fetchProfileInformation();
 <body>
 
 <!-- Display error or success messages when needed. -->
-<?php if ($_GET['editProfile'] == 'successful') {
+<?php if (isset($_GET['editProfile']) && $_GET['editProfile'] == 'successful') {
     echo '
     <div class="message-box" id="success">
         <div class="message-content">
@@ -37,7 +37,7 @@ $profileResult = fetchProfileInformation();
             <a href="profile.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['updatePassword'] == 'failed') {
+} elseif (isset($_GET['updatePassword']) && $_GET['updatePassword'] == 'failed') {
     echo '
     <div class="message-box" id="failed">
         <div class="message-content">
@@ -57,7 +57,7 @@ $profileResult = fetchProfileInformation();
                 <div class="profile-content-header">
                     <div class="header-title"><p>Profile</p></div>
                     <div class="header-actions">
-                        <?php if ($_GET['editProfile'] == 'true') {
+                        <?php if (isset($_GET['editProfile']) && $_GET['editProfile'] == 'true') {
                             echo '<a href="profile.php" class="bi bi-x-lg"></a>';
                         } else {
                             echo '<a href="profile.php?editProfile=true" class="bi bi-pencil editButton"></a>';
@@ -67,7 +67,7 @@ $profileResult = fetchProfileInformation();
                 <div class="profile-content-body">
                     <form action="../index.php?accountFunc=3" method="post">
                     <div class="body-row" id="double">
-                        <?php if ($_GET['editProfile'] == 'true') {
+                        <?php if (isset($_GET['editProfile']) && $_GET['editProfile'] == 'true') {
                             echo '
                             <div class="body-input"><label>First name</label><input type="text" name="firstname" value="'. $profileResult['sFirstName'] .'"></div>
                             <div class="body-input"><label>Last name</label><input type="text" name="lastname" value="'. $profileResult['sLastName'] .'"></div>';                                
@@ -78,7 +78,7 @@ $profileResult = fetchProfileInformation();
                         } ?>
                     </div>
                     <div class="body-row">
-                        <?php if ($_GET['editProfile'] == 'true') {
+                        <?php if (isset($_GET['editProfile']) && $_GET['editProfile'] == 'true') {
                             echo '
                             <div class="body-input"><label>Date of Birth</label><input type="date" name="birthdate" value="'. $profileResult['dDateOfBirth'] .'"></div>
                             <div class="body-input"><label>E-mail</label><input type="text" name="mailaddress" value="'. $profileResult['sMailAddress'] .'"></div>';                                
@@ -89,7 +89,7 @@ $profileResult = fetchProfileInformation();
                         } ?>
                     </div>
                 </div>
-                <?php if ($_GET['editProfile'] =='true') {
+                <?php if (isset($_GET['editProfile']) && $_GET['editProfile'] == 'true') {
                     echo '<div class="profile-content-footer"><button type="submit" class="submitButton">Update profile</button></div>';
                 } ?>
                 </form>
@@ -98,7 +98,7 @@ $profileResult = fetchProfileInformation();
                 <div class="profile-content-header">
                     <div class="header-title">Shipping address</div>
                     <div class="header-actions">
-                        <?php if ($_GET['editAddress'] == 'true') {
+                        <?php if (isset($_GET['editAddress']) && $_GET['editAddress'] == 'true') {
                             echo '<a href="profile.php" class="bi bi-x-lg"></a>';
                         } else {
                             echo '<a href="profile.php?editAddress=true" class="bi bi-pencil editButton"></a>';
@@ -108,7 +108,7 @@ $profileResult = fetchProfileInformation();
                 <div class="profile-content-body">
                     <form action="../index.php?accountFunc=6" method="post">
                     <div class="body-row" id="double">
-                        <?php if ($_GET['editAddress'] == 'true') {
+                        <?php if (isset($_GET['editAddress']) && $_GET['editAddress'] == 'true') {
                             echo '
                             <div class="body-input"><label>Street</label><input type="text" name="street" value="'. $profileResult['sStreetName'] .'"></div>
                             <div class="body-input"><label>House number</label><input type="text" name="housenumber" value="'. $profileResult['iHouseNumber'] .'"></div>';                                
@@ -119,7 +119,7 @@ $profileResult = fetchProfileInformation();
                         } ?>
                     </div>
                     <div class="body-row">
-                        <?php if ($_GET['editAddress'] == 'true') {
+                        <?php if (isset($_GET['editAddress']) && $_GET['editAddress'] == 'true') {
                             echo '
                             <div class="body-input"><label>Postal code</label><input type="text" name="postal" value="'. $profileResult['sPostalCode'] .'"></div>
                             <div class="body-input"><label>City</label><input type="text" name="city" value="'. $profileResult['sCity'] .'"></div>';                                
@@ -130,7 +130,7 @@ $profileResult = fetchProfileInformation();
                         } ?>
                     </div>
                 </div>
-                <?php if ($_GET['editAddress'] =='true') {
+                <?php if (isset($_GET['editAddress']) && $_GET['editAddress'] == 'true') {
                     echo '<div class="profile-content-footer"><button type="submit" class="submitButton">Update address</button></div>';
                 } ?>
                 </form>

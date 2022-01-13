@@ -24,7 +24,7 @@ session_start();
 <body>
 
 <?php 
-    if ($_GET['deleteProduct'] == 'successful') {
+    if (isset($_GET['deleteProduct']) && $_GET['deleteProduct'] == 'successful') {
         echo '
         <div class="message-box" id="success">
             <div class="message-content">
@@ -32,7 +32,7 @@ session_start();
                 <a href="watches.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['deleteProduct'] == 'failed') {
+    } elseif (isset($_GET['deleteProduct']) && $_GET['deleteProduct'] == 'failed') {
         echo '
         <div class="message-box" id="failed">
             <div class="message-content">
@@ -40,7 +40,7 @@ session_start();
                 <a href="watches.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertCollection'] == 'successful') {
+    } elseif (isset($_GET['insertCollection']) && $_GET['insertCollection'] == 'successful') {
         echo '
         <div class="message-box" id="success">
             <div class="message-content">
@@ -48,7 +48,7 @@ session_start();
                 <a href="profile.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertCollection'] == 'failed') {
+    } elseif (isset($_GET['insertCollection']) && $_GET['insertCollection'] == 'failed') {
         echo '
         <div class="message-box" id="failed">
             <div class="message-content">
@@ -56,7 +56,7 @@ session_start();
                 <a href="profile.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertMovement'] == 'successful') {
+    } elseif (isset($_GET['insertMovement']) && $_GET['insertMovement'] == 'successful') {
         echo '
         <div class="message-box" id="success">
             <div class="message-content">
@@ -64,7 +64,7 @@ session_start();
                 <a href="profile.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertMovement'] == 'failed') {
+    } elseif (isset($_GET['insertMovement']) && $_GET['insertMovement'] == 'failed') {
         echo '
         <div class="message-box" id="failed">
             <div class="message-content">
@@ -72,7 +72,7 @@ session_start();
                 <a href="profile.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertWatch'] == 'successful') {
+    } elseif (isset($_GET['insertWatch']) && $_GET['insertWatch'] == 'successful') {
         echo '
         <div class="message-box" id="success">
             <div class="message-content">
@@ -80,7 +80,7 @@ session_start();
                 <a href="profile.php" class="close-message bi bi-x-lg"></a>
             </div>
         </div>';
-    } elseif ($_GET['insertWatch'] == 'failed') {
+    } elseif (isset($_GET['insertWatch']) && $_GET['insertWatch'] == 'failed') {
         echo '
         <div class="message-box" id="failed">
             <div class="message-content">
@@ -99,17 +99,17 @@ echo '
 <section class="product-action-section">
     <div class="product-action-container">
         <div class="product-action-header">
-            <div class="header-title">'; ?><?php if ($_GET['insertCollection']) {
+            <div class="header-title">'; ?><?php if (isset($_GET['insertCollection'])) {
                 echo '<p>Insert collection</p>';
-            } elseif ($_GET['insertMovement']) {
+            } elseif (isset($_GET['insertMovement'])) {
                 echo '<p>Insert movement</p>';
             } else {
                 echo '<p>Insert watch</p>';
             } ?></div>
-            <div class="header-actions"><?php if ($_GET['insertCollection']) {
+            <div class="header-actions"><?php if (isset($_GET['insertCollection'])) {
                 echo '<a href="watches.php" id="insert">Watch</a>
                 <a href="watches.php?insertMovement=true" id="insert">Movement</a>';
-            } elseif ($_GET['insertMovement']) {
+            } elseif (isset($_GET['insertMovement'])) {
                 echo '<a href="watches.php" id="insert">Watch</a>
                 <a href="watches.php?insertCollection=true" id="insert">Collection</a>';
             } else {
@@ -118,7 +118,7 @@ echo '
             } ?></div>
         </div>
         <div class="product-action-body">
-            <?php if ($_GET['insertCollection'] == 'true') {
+            <?php if (isset($_GET['insertCollection']) && $_GET['insertCollection'] == 'true') {
                 echo '
                 <div class="body-content">
                 <form action="../index.php?productFunc=1" method="post">
@@ -134,7 +134,7 @@ echo '
                 </div>
                 <div class="product-action-footer"><button type="submit" class="submitButton">Insert collection</button></div>
                 </form>';
-            } elseif ($_GET['insertMovement'] == 'true') {
+            } elseif (isset($_GET['insertMovement']) && $_GET['insertMovement'] == 'true') {
                 echo '
                 <div class="body-content">
                 <form action="../index.php?productFunc=2" method="post">

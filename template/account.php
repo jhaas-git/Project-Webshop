@@ -17,7 +17,7 @@ include '../model/config/includes.php';
 <body>
 
 <!-- Display error or success messages when needed. -->
-<?php if ($_GET['authentication1'] == 'failed') {
+<?php if (isset($_GET['authentication1']) && $_GET['authentication1'] == 'failed') {
     echo '
     <div class="message-box" id="failed">
         <div class="message-content">
@@ -25,7 +25,7 @@ include '../model/config/includes.php';
             <a href="account.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['authentication2'] == 'failed') {
+} elseif (isset($_GET['authentication2']) && $_GET['authentication1'] == 'failed') {
     echo '
     <div class="message-box" id="failed">
         <div class="message-content">
@@ -33,7 +33,7 @@ include '../model/config/includes.php';
             <a href="account.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['registration'] == 'successful') {
+} elseif (isset($_GET['registration']) && $_GET['registration'] == 'successful') {
     echo '
     <div class="message-box" id="success">
         <div class="message-content">
@@ -41,7 +41,7 @@ include '../model/config/includes.php';
             <a href="account.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['registration'] == 'failed') {
+} elseif (isset($_GET['registration']) && $_GET['registration'] == 'failed') {
     echo '
     <div class="message-box" id="failed">
         <div class="message-content">
@@ -49,7 +49,7 @@ include '../model/config/includes.php';
             <a href="account.php" class="close-message bi bi-x-lg"></a>
         </div>
     </div>';
-} elseif ($_GET['updatePassword'] == 'successful') {
+} elseif (isset($_GET['updatePassword']) && $_GET['updatePassword'] == 'successful') {
     echo '
     <div class="message-box" id="success">
         <div class="message-content">
